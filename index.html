@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="شمیم شمسی؛ هنرمند هوش مصنوعی، مدیر خلاقیت و بنیان‌گذار Shim Studio. مریسا، کاراکترها، نمونه‌کارها و راه‌های تماس.">
+<meta property="og:title" content="Shamim Shamsi">
+<meta property="og:description" content="I'm not a robot. …but I teach them.">
+<meta property="og:image" content="assets/s1.jpg">
+<style>html{color-scheme:light}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font-size:14px;font-family:system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Shamim Shamsi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=Inter:wght@400;500;700&family=Vazirmatn:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap">
+</head>
+<body>
+<style>
+/* Layout: a film. Opening = the business card; then a pinned title sequence where Shamim's avatar lives on stage (WebGL: breathing, hair, wave, mouse-look) while the camera pushes in on scroll; then "behind the avatar" (her real photos), Merisa (video + stills), brands, journey, honors, teaching, contact. World = violet dusk lit by neon, never pure black. */
+:root{
+  --bg:#1C0E4A; --bg-2:#2A1668; --bg-3:#38208A; --text:#F4EFFF; --muted:#BDB3E0; --dim:#8E84B8; --line:rgba(244,239,255,.14);
+  --violet:#A184FF; --pink:#FF73B9; --gold:#FFD27A; --sky:#7FD4FF;
+  --f-display:'Syne', 'Arial Black', sans-serif;
+  --f-fa:'Vazirmatn', Tahoma, sans-serif;
+  --f-mono:'JetBrains Mono', ui-monospace, Menlo, monospace;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{background:radial-gradient(120% 80% at 50% 0%, #2B1570 0%, var(--bg) 55%) fixed}
+body{background:var(--bg);color:var(--text);font-family:var(--f-fa);font-size:17px;line-height:1.9;direction:rtl;overflow-x:hidden}
+.wrap{position:relative;max-width:1180px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.en{font-family:var(--f-display);direction:ltr;unicode-bidi:isolate}
+.mono{font-family:var(--f-mono);direction:ltr;unicode-bidi:isolate}
+a{color:var(--text)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--pink);outline-offset:3px;border-radius:6px}
+
+/* language toggle */
+#lang{position:fixed;z-index:60;top:calc(env(safe-area-inset-top, 0px) + 14px);left:calc(env(safe-area-inset-left, 0px) + 14px);min-width:52px;height:40px;padding:0 14px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(10,6,30,.55);backdrop-filter:blur(10px);color:#fff;font:700 13px var(--f-display);letter-spacing:.1em;cursor:pointer}
+html[lang=en] body{direction:ltr}
+html[lang=en] .hud,html[lang=en] .eyebrow,html[lang=en] .fact b,html[lang=en] .kpi b,html[lang=en] .nums b,html[lang=en] .job .w,html[lang=en] .pg b,html[lang=en] .c .v,html[lang=en] .ages,html[lang=en] .hon p.en,html[lang=en] .handle{text-align:left}
+html[lang=en] .station.left{justify-content:flex-start}
+html[lang=en] body{font-family:var(--f-display), var(--f-fa)}
+html[lang=en] h1,html[lang=en] h2,html[lang=en] h3{font-family:var(--f-display);letter-spacing:-.02em}
+html[lang=en] .lead,html[lang=en] p,html[lang=en] span,html[lang=en] small{font-family:'Inter', var(--f-fa), sans-serif}
+#gate{direction:rtl}
+/* ---------- gate (the business card) ---------- */
+body.locked{overflow:hidden}
+#gate{position:fixed;inset:0;z-index:50;background:#F6F5F1;display:grid;place-items:center;
+  padding:max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  transition:background-color 1s ease .8s, opacity .8s ease 1.5s, visibility .8s 1.5s}
+#gate.dive{background-color:var(--bg);opacity:0;visibility:hidden}
+.stage{display:flex;flex-direction:column;align-items:center;gap:28px;width:100%;perspective:1400px}
+.card3d{position:relative;width:min(560px, 100%);aspect-ratio:1050/600;max-width:100%;transform-style:preserve-3d;transition:transform 1s cubic-bezier(.3,.7,.2,1);animation:float 5s ease-in-out infinite}
+.card3d.flip{transform:rotateY(180deg);animation:none}
+.card3d.zoom{transform:rotateY(180deg) scale(3.5);opacity:0;transition:transform 1.1s cubic-bezier(.6,0,.4,1), opacity .9s ease .3s}
+@keyframes float{0%,100%{transform:rotateX(6deg) rotateY(-8deg) translateY(0)}50%{transform:rotateX(3deg) rotateY(6deg) translateY(-6px)}}
+.face{position:absolute;inset:0;border-radius:14px;background:#F6F5F1;border:1px solid #D9D6CF;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  box-shadow:0 30px 60px -28px rgba(26,26,26,.4), 0 6px 14px -8px rgba(26,26,26,.2);display:grid;place-items:center;direction:ltr;color:#1A1A1A}
+.face.back{transform:rotateY(180deg);place-items:stretch;padding:7% 8%;grid-template-rows:auto 1fr}
+.captcha{display:flex;align-items:center;gap:14px;width:66%;justify-content:space-between;background:#fff;border:1.5px solid #D9D6CF;border-radius:8px;padding:12px 14px 12px 16px;cursor:pointer;font:inherit;color:#1A1A1A;text-align:left}
+.captcha .q{font-family:'Helvetica Neue', Arial, sans-serif;font-size:clamp(14px, 3.6vw, 21px);font-weight:500;flex:1}
+.box{width:clamp(22px, 5vw, 32px);height:clamp(22px, 5vw, 32px);border:2.5px solid #8E8A83;border-radius:4px;display:grid;place-items:center;transition:all .3s;flex:none;animation:nudge 1.8s ease-in-out infinite}
+.box svg{width:80%;height:80%;stroke:#fff;stroke-width:3.2;fill:none;stroke-dasharray:30;stroke-dashoffset:30;transition:stroke-dashoffset .4s .1s ease}
+@keyframes nudge{0%,100%{box-shadow:0 0 0 0 rgba(106,75,255,0)}50%{box-shadow:0 0 0 6px rgba(106,75,255,.2)}}
+.captcha.on .box{background:#6A4BFF;border-color:#6A4BFF;animation:none}
+.captcha.on .box svg{stroke-dashoffset:0}
+.spark{display:flex;flex-direction:column;align-items:center;gap:2px;font-family:var(--f-mono);font-size:9px;color:#8E8A83}
+.spark svg{width:clamp(18px, 4vw, 26px);height:clamp(18px, 4vw, 26px);fill:#6A4BFF}
+.bk-top{display:flex;align-items:center;gap:10px;font-family:'Helvetica Neue', Arial, sans-serif;font-weight:700;font-size:clamp(15px, 3.6vw, 22px)}
+.okb{width:1.4em;height:1.4em;border-radius:4px;background:#6A4BFF;color:#fff;display:grid;place-items:center;font-size:.8em}
+.bk-name{align-self:end;font-family:'Helvetica Neue', Arial, sans-serif;font-weight:700;font-size:clamp(30px, 8vw, 54px);line-height:.95;letter-spacing:-.04em}
+.gate-note{margin:0;text-align:center;color:#55524C;font-size:16px;line-height:1.9;transition:opacity .3s}
+.gate-note b{color:#1A1A1A}
+#gate.dive .gate-note{opacity:0}
+
+/* ---------- hero: pinned title sequence ---------- */
+.hero{position:relative;height:170svh}
+.pin{position:sticky;top:0;height:100svh;overflow:hidden;
+  background:radial-gradient(70% 60% at 50% 45%, #4A2BB5 0%, #2A1668 45%, var(--bg) 100%)}
+.rays{position:absolute;inset:-20%;background:conic-gradient(from 200deg at 50% 30%, transparent 0 40deg, rgba(161,132,255,.16) 48deg, transparent 60deg 150deg, rgba(255,115,185,.12) 160deg, transparent 172deg 360deg);animation:spin 40s linear infinite;mix-blend-mode:screen}
+@keyframes spin{to{transform:rotate(360deg)}}
+.bignm{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;pointer-events:none;font-family:var(--f-display);font-weight:800;line-height:.82;
+  font-size:clamp(84px, 21vw, 300px);letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px rgba(244,239,255,.28);direction:ltr;text-transform:uppercase;will-change:transform}
+.bignm span:last-child{color:rgba(161,132,255,.16)}
+#bokeh,#stage{position:absolute;inset:0;width:100%;height:100%;display:block}
+#fallback{position:absolute;bottom:-5%;left:34%;height:104%;width:auto;transform:translateX(-50%);animation:breathe 4s ease-in-out infinite;filter:drop-shadow(0 0 60px rgba(161,132,255,.5))}
+@keyframes breathe{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.012)}}
+@media (max-width:760px){#fallback{left:50%;height:92%}}
+#front{position:absolute;inset:0;pointer-events:none}
+#front i{position:absolute;border-radius:50%;filter:blur(18px);opacity:.55;animation:drift 12s ease-in-out infinite}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-40px)}}
+.bars::before,.bars::after{content:"";position:absolute;left:0;right:0;height:var(--bar, 7svh);background:#0B0720;z-index:4;transition:height .2s}
+.bars::before{top:0}.bars::after{bottom:0}
+.hud{position:absolute;z-index:5;inset:auto 0 var(--bar, 7svh);padding-block:60px 18px;background:linear-gradient(180deg, transparent, rgba(22,15,54,.82) 55%);padding-inline:max(16px, env(safe-area-inset-left, 0px));display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.credit{font-family:var(--f-mono);font-size:12px;letter-spacing:.3em;color:var(--muted);direction:ltr}
+.hl{font-size:clamp(26px, 4.6vw, 48px);font-weight:900;line-height:1.35;text-wrap:balance;text-shadow:0 4px 30px rgba(22,15,54,.8)}
+.hl .en{font-weight:800}
+.hl b{color:var(--pink);font-weight:800}
+.seq{position:relative;height:1.5em;width:100%}
+.seq > *{position:absolute;inset:0;opacity:0;transform:translateY(12px);transition:opacity .5s, transform .5s}
+.seq > .on{opacity:1;transform:none}
+.cue{font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;color:var(--dim);direction:ltr}
+.topbar{position:absolute;z-index:5;top:calc(var(--bar, 7svh) + 14px);left:0;right:0;display:flex;justify-content:space-between;padding-inline:max(18px, env(safe-area-inset-left, 0px) + 18px);font-family:var(--f-mono);font-size:11px;letter-spacing:.24em;color:var(--muted);direction:ltr}
+.topbar .rec{display:flex;align-items:center;gap:8px}
+.topbar .rec i{width:8px;height:8px;border-radius:50%;background:#FF4D6D;animation:blink 1.2s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* ---------- depth & vector ornaments ---------- */
+.depthfield{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.depthfield i{position:absolute;border-radius:50%;filter:blur(80px);opacity:.42;animation:df 26s ease-in-out infinite}
+.depthfield i:nth-child(1){width:52vw;height:52vw;left:-18vw;top:10vh;background:#6E45FF}
+.depthfield i:nth-child(2){width:40vw;height:40vw;right:-14vw;top:48vh;background:#E0469E;animation-delay:-9s}
+.depthfield i:nth-child(3){width:34vw;height:34vw;left:30vw;bottom:-20vh;background:#2FA8FF;animation-delay:-17s}
+@keyframes df{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(6vw,-5vh) scale(1.12)}}
+main{position:relative;z-index:1;overflow-x:clip}
+html,body{overflow-x:hidden;max-width:100%}
+section{overflow:visible}
+.wrap > .eyebrow,.wrap > h2,.wrap > .lead{position:relative;z-index:2}
+.deco{position:absolute;z-index:0;pointer-events:none;will-change:transform;filter:drop-shadow(0 30px 40px rgba(0,0,0,.45));animation:hover 7s ease-in-out infinite}
+.deco.slow{animation-duration:11s}
+@keyframes hover{0%,100%{translate:0 0}50%{translate:0 -14px}}
+.tilt{transform-style:preserve-3d;transition:transform .25s ease}
+
+/* ---------- sections ---------- */
+section{position:relative;padding-block:110px;perspective:1200px}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.28em;color:var(--pink);direction:ltr;text-align:right;display:block;margin-bottom:10px}
+h2{margin:0 0 18px;font-size:clamp(40px, 6.4vw, 78px);font-weight:900;line-height:1.15;text-wrap:balance}
+h2 .en{font-weight:800;color:var(--violet)}
+.lead{color:var(--muted);font-size:clamp(17px, 1.9vw, 20px);max-width:36em;margin:0}
+.reveal{transition:opacity 1s ease, transform 1s cubic-bezier(.2,.8,.2,1), clip-path 1.2s cubic-bezier(.2,.8,.2,1)}
+.pre{opacity:0;transform:translateY(50px)}
+.pre.clip{opacity:1;transform:none;clip-path:inset(100% 0 0 0 round 22px)}
+.clip{clip-path:inset(0 0 0 0 round 22px)}
+
+/* behind the avatar */
+.real{display:grid;grid-template-columns:repeat(12, minmax(0,1fr));gap:16px;margin-top:46px}
+.ph{position:relative;overflow:hidden;border-radius:22px;background:var(--bg-2)}
+.ph img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.12);will-change:transform}
+.ph figcaption{position:absolute;inset:auto 14px 12px auto;font-family:var(--f-mono);font-size:11px;letter-spacing:.2em;color:#fff;background:rgba(22,15,54,.55);backdrop-filter:blur(6px);padding:4px 10px;border-radius:999px;direction:ltr}
+.r1{grid-column:span 5;aspect-ratio:619/900}
+.r2{grid-column:span 4;aspect-ratio:619/900;margin-top:80px}
+.r3{grid-column:span 3;display:flex;flex-direction:column;gap:16px}
+.r3 .ph{aspect-ratio:1/1}
+.r3 .note{border:1px solid var(--line);border-radius:22px;padding:18px;color:var(--muted);font-size:15px;background:rgba(255,255,255,.03)}
+.r4{grid-column:span 7;aspect-ratio:1100/619}
+.r5{grid-column:span 5;aspect-ratio:640/740}
+.facts{display:grid;grid-template-columns:repeat(3, minmax(0,1fr));gap:12px;margin-top:40px}
+.fact{border-top:1px solid var(--line);padding-top:14px}
+.fact b{display:block;font-size:20px;font-weight:900}
+.fact span{color:var(--muted);font-size:15px}
+
+/* merisa */
+#merisa{background:linear-gradient(180deg, var(--bg) 0%, #24124F 50%, var(--bg) 100%)}
+.mer{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:28px;align-items:center;margin-top:40px}
+.mer .reel{order:2;transform:rotate(1.5deg)}
+.mer > .reveal{position:relative;z-index:1}
+.reel{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:16/9;max-width:100%;background:#000;box-shadow:0 50px 100px -40px rgba(255,115,185,.45)}
+.reel video{width:100%;height:100%;object-fit:cover;display:block}
+.snd{position:absolute;right:14px;bottom:14px;z-index:3;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(10,6,30,.55);backdrop-filter:blur(8px);color:#fff;font-size:18px;cursor:pointer;display:grid;place-items:center}
+.reel .tag{position:absolute;top:14px;left:14px;font-family:var(--f-mono);font-size:11px;letter-spacing:.2em;background:rgba(0,0,0,.45);padding:4px 10px;border-radius:999px;direction:ltr}
+.kpis{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:12px}
+.kpi{border:1px solid var(--line);border-radius:20px;padding:18px;background:rgba(255,255,255,.04)}
+.kpi b{display:block;font-family:var(--f-display);font-weight:800;font-size:clamp(40px, 5vw, 58px);line-height:1;direction:ltr;text-align:right;font-variant-numeric:tabular-nums}
+.kpi span{color:var(--muted);font-size:14.5px}
+.kpi.big{grid-column:1 / -1;background:linear-gradient(120deg, rgba(161,132,255,.28), rgba(255,115,185,.22));border-color:rgba(255,115,185,.45)}
+.kpi.big b{font-size:clamp(64px, 9vw, 104px)}
+.morph{color:var(--pink);display:inline-block;transition:filter .35s, opacity .35s, transform .35s}
+.morph.out{filter:blur(8px);opacity:0;transform:translateY(6px)}
+.mline{font-size:clamp(20px, 2.4vw, 26px);font-weight:900;margin:0 0 18px}
+.ba{position:relative;z-index:1;margin-top:60px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:30px;align-items:center}
+.ba-head h3{margin:6px 0 10px;font-size:clamp(26px, 3.4vw, 40px);font-weight:900;line-height:1.3}
+.ba-head p{margin:0;color:var(--muted)}
+.ba-grid{position:relative;display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:12px}
+.ba-v{margin:0;position:relative;aspect-ratio:9/16;border-radius:20px;overflow:hidden;background:#000;box-shadow:0 40px 70px -40px rgba(0,0,0,.8)}
+.ba-v:first-child{transform:rotate(-2deg)}.ba-v:last-child{transform:rotate(2deg) translateY(18px)}
+.ba-v video{width:100%;height:100%;object-fit:cover;display:block}
+.ba-v figcaption{position:absolute;left:12px;top:12px;font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;background:rgba(10,6,30,.6);padding:4px 10px;border-radius:999px;direction:ltr}
+.ba-snd{right:auto;left:50%;transform:translateX(-50%);bottom:-22px}
+.strip{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:34px 2px 10px;margin-top:10px;scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.strip figure{flex:0 0 clamp(200px, 26vw, 300px);margin:0;aspect-ratio:558/1000;border-radius:20px;overflow:hidden;scroll-snap-align:start;transform:rotate(var(--r, 0deg));transition:transform .4s}
+.strip figure:hover{transform:rotate(0) translateY(-8px) scale(1.02)}
+.strip img{width:100%;height:100%;object-fit:cover;display:block}
+.trait{color:var(--muted);margin-top:18px;max-width:40em}
+
+/* cast */
+.cast{position:relative;display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:18px;margin-top:40px}
+.cast .char:nth-child(3){margin-top:70px;transform:rotate(1deg)}
+.cast .char:nth-child(2){transform:rotate(-1deg)}
+.char{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);border:1px solid var(--line);border-radius:24px;overflow:hidden;background:rgba(255,255,255,.04);min-width:0}
+.char-ph{min-height:100%;background:var(--bg-2)}
+.char-ph{position:relative}
+.char-ph img,.char-ph video{width:100%;height:100%;object-fit:cover;object-position:50% 60%;display:block;aspect-ratio:3/4}
+.char-body{padding:22px 24px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.handle{font-family:var(--f-display);font-weight:800;font-size:15px;color:var(--pink);text-decoration:none;text-align:right}
+.char h3{margin:0;font-size:26px;font-weight:900}
+.char p{margin:0;color:var(--muted);font-size:15px}
+.nums{display:flex;flex-wrap:wrap;gap:14px 26px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
+.nums b{display:block;font-family:var(--f-display);font-weight:800;font-size:30px;line-height:1.1;direction:ltr;text-align:right}
+.nums span{font-size:13px;color:var(--muted)}
+
+/* web design */
+.web{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3, minmax(0,1fr));gap:40px;margin-top:40px;border-top:1px solid var(--line);padding-top:30px}
+.wf b{display:block;font-family:var(--f-display);font-weight:800;font-size:15px;color:var(--pink);text-align:right;letter-spacing:.1em}
+.wf h3{margin:8px 0 6px;font-size:22px;font-weight:900}
+.wf p{margin:0;color:var(--muted);font-size:15px}
+.btn-line{display:inline-block;margin-top:34px;font-weight:700;text-decoration:none;border-bottom:2px solid var(--pink);padding-bottom:4px}
+
+/* brands */
+.marquee{overflow:hidden;direction:ltr;margin-top:46px;transform:perspective(900px) rotateX(18deg) rotate(-2.5deg) scale(1.06);transform-origin:50% 100%;mask-image:linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent)}
+.track{display:flex;gap:14px;width:max-content;animation:slide 38s linear infinite}
+.track.rev{animation-direction:reverse;margin-top:14px}
+.track span{direction:rtl;font-size:clamp(20px, 2.6vw, 30px);font-weight:900;padding:14px 28px;border:1px solid rgba(255,255,255,.18);border-radius:18px;white-space:nowrap;background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.03));box-shadow:0 10px 0 -4px rgba(0,0,0,.35), 0 22px 30px -18px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.25)}
+.track span img{height:1.1em;width:auto;vertical-align:middle;margin-inline-end:10px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4))}
+.track span.l{font-family:var(--f-display);font-weight:800;direction:ltr}
+.track span:nth-child(4n+1){color:var(--pink)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* journey */
+.journey{position:relative;display:grid;grid-template-columns:repeat(3, minmax(0,1fr));gap:14px;margin-top:40px}
+.journey .job:nth-child(odd){margin-top:46px}
+.job{border:1px solid var(--line);border-radius:22px;padding:22px;background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.01));min-width:0}
+.job .w{font-family:var(--f-display);font-weight:800;font-size:20px;direction:ltr;text-align:right;color:var(--violet)}
+.job h3{margin:6px 0 6px;font-size:19px;font-weight:900;line-height:1.6}
+.job p{margin:0;color:var(--muted);font-size:15px}
+
+/* honors */
+.certs{position:relative;z-index:1;display:flex;gap:14px;margin-top:40px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 18px;scrollbar-width:none;direction:ltr}
+.certs::-webkit-scrollbar{display:none}
+.cert{margin:0;flex:0 0 auto;width:clamp(150px, 16vw, 190px);scroll-snap-align:start;cursor:zoom-in;transition:transform .3s;direction:rtl}
+.cert:hover{transform:translateY(-6px)}
+.cert img{width:100%;display:block;aspect-ratio:700/1016;object-fit:cover;border-radius:4px;padding:6px;background:#FFFFFF;box-shadow:0 1px 0 rgba(255,255,255,.4) inset, 0 20px 40px -24px rgba(0,0,0,.8)}
+.cert figcaption{display:flex;flex-direction:column;margin-top:10px}
+.cert figcaption b{font-size:13px;font-weight:700;color:var(--text)}
+.cert figcaption span{font-size:11.5px;color:var(--muted);line-height:1.6}
+.honors.more{margin-top:46px}
+.lightbox{position:fixed;inset:0;z-index:80;background:rgba(10,6,30,.9);display:grid;place-items:center;padding:24px}
+.lightbox img{max-width:min(94vw, 720px);max-height:88svh;border-radius:4px;background:#fff;padding:6px}
+.lb-x{position:absolute;top:calc(env(safe-area-inset-top, 0px) + 14px);right:14px;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;font-size:26px;cursor:pointer}
+.honors{position:relative;z-index:1;list-style:none;padding:0;margin:40px 0 0;display:grid;grid-template-columns:repeat(2, minmax(0,1fr));column-gap:56px;border-top:1px solid var(--line)}
+.hon{padding:26px 0 28px;border-bottom:1px solid var(--line);min-width:0}
+.hon .k{display:block;font-size:14px;font-weight:500;color:var(--pink);margin-bottom:4px}
+.hon h3{margin:0;font-size:clamp(22px, 2.6vw, 30px);font-weight:900;line-height:1.5}
+.hon h3 .en{font-weight:800}
+.hon p{margin:4px 0 0;color:var(--muted);font-size:15px}
+.hon p.en{font-family:var(--f-mono);font-size:13px;letter-spacing:.06em;text-align:right}
+.solo{position:relative;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:48px;align-items:center;margin-top:46px}
+.solo-ph{aspect-ratio:619/900;max-width:100%;position:relative;z-index:1;transform:rotate(-2deg)}
+.facts-side{margin:0;grid-template-columns:minmax(0,1fr);gap:0;position:relative;z-index:1}
+.facts-side .fact{padding:22px 0;border-top:1px solid var(--line)}
+
+/* press */
+.press{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,.7fr);gap:18px;margin-top:40px;align-items:start}
+.clip{margin:0;display:flex;flex-direction:column;gap:10px}
+.clip img{width:100%;display:block;border-radius:6px;padding:6px;background:#fff;box-shadow:0 20px 40px -24px rgba(0,0,0,.8)}
+.clip figcaption,.clip.txt{display:flex;flex-direction:column}
+.clip b{font-size:15px;font-weight:700}
+.clip span{font-size:12.5px;color:var(--muted);line-height:1.7}
+.clip.txt{border:1px solid var(--line);border-radius:14px;padding:18px;background:rgba(255,255,255,.04)}
+@media (max-width:860px){.press{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.clip.txt{grid-column:1 / -1}}
+
+/* teach */
+.teach{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center;margin-top:30px}
+.ages{font-family:var(--f-display);font-weight:800;font-size:clamp(70px, 11vw, 150px);line-height:.9;direction:ltr;text-align:right;background:linear-gradient(90deg, var(--violet), var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.topics{display:flex;flex-wrap:wrap;gap:8px}
+.topics span{border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:15px;background:rgba(255,255,255,.03)}
+.desk{border-radius:24px;overflow:hidden;aspect-ratio:4/5;max-width:100%}
+.desk img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* phones */
+#ig{overflow:hidden;padding-bottom:40px}
+.phones{display:flex;justify-content:center;align-items:flex-end;gap:0;margin-top:30px;perspective:1600px;perspective-origin:50% 30%;padding:120px 16px 30px;direction:ltr}
+.phone{position:relative;flex:0 0 auto;width:min(236px, 44vw);aspect-ratio:9/19;border-radius:34px;background:#0B0720;padding:9px;box-shadow:0 60px 90px -40px rgba(0,0,0,.8), inset 0 0 0 2px #2A2446, 0 0 0 1px rgba(255,255,255,.08);
+  transform-style:preserve-3d;text-decoration:none;color:var(--text);margin:0 -22px;
+  --rot:calc((var(--i) - 1.5) * 9deg);--lift:calc((var(--i) - 1.5) * (var(--i) - 1.5) * 18px);
+  transform:rotateY(var(--rot)) translateY(var(--lift)) translateZ(calc(-40px * (var(--i) - 1.5) * (var(--i) - 1.5)));transition:transform .5s cubic-bezier(.2,.8,.2,1), opacity .5s;z-index:calc(10 - var(--i))}
+.phone.pre{transform:rotateY(var(--rot)) translateY(260px) rotateX(25deg);opacity:0}
+.phone:hover{transform:rotateY(0) translateY(-26px) translateZ(60px) scale(1.04);z-index:20}
+.phone img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:26px;display:block}
+.notch{position:absolute;top:18px;left:50%;transform:translateX(-50%);width:34%;height:22px;border-radius:999px;background:#0B0720;z-index:2}
+.phone b{position:absolute;left:50%;bottom:-44px;transform:translateX(-50%);font-family:var(--f-display);font-weight:800;font-size:14px;color:var(--muted);white-space:nowrap}
+@media (max-width:860px){
+  .phones{justify-content:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;gap:26px;padding:60px 24px 60px;perspective:none;scrollbar-width:none}
+  .phones::-webkit-scrollbar{display:none}
+  .phone{margin:0;width:min(230px,62vw);transform:none;scroll-snap-align:center}
+  .phone.pre{transform:translateY(120px)}
+  .phone:hover{transform:none}
+}
+
+/* pages + contact */
+.pages{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3, minmax(0,1fr));gap:14px;margin-top:36px}
+.pg{display:flex;flex-direction:column;gap:4px;text-decoration:none;border:1px solid var(--line);border-radius:22px;padding:22px;background:rgba(255,255,255,.04);transition:transform .2s, background .2s;min-width:0}
+.pg:hover{transform:translateY(-4px);background:rgba(255,255,255,.08)}
+.pg b{font-family:var(--f-display);font-weight:800;font-size:22px;direction:ltr;text-align:right;overflow-wrap:anywhere}
+.pg span{color:var(--muted);font-size:15px}
+.links{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:14px;margin-top:26px}
+.lk{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:16px;text-decoration:none;color:var(--text);border:1px solid var(--line);border-radius:22px;padding:16px 18px;background:rgba(255,255,255,.04);transition:transform .25s, background .25s;min-width:0}
+.lk:hover{transform:translateY(-4px);background:rgba(255,255,255,.08)}
+.lk .ico{width:58px;height:58px;flex:none;border-radius:18px;display:grid;place-items:center;background:linear-gradient(145deg, var(--c1), var(--c2) 55%, var(--c3));box-shadow:inset 0 2px 0 rgba(255,255,255,.45), inset 0 -6px 10px rgba(0,0,0,.25), 0 16px 26px -14px var(--c2)}
+.lk .ico svg{width:28px;height:28px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 1px 1px rgba(0,0,0,.3))}
+.lk .t{display:flex;flex-direction:column;min-width:0}
+.lk b{font-size:19px;font-weight:900}
+.lk small{color:var(--muted);font-size:13.5px}
+.lk .h{font-family:var(--f-mono);font-size:12.5px;color:var(--muted);direction:ltr;overflow-wrap:anywhere;text-align:right}
+@media (max-width:860px){.links{grid-template-columns:minmax(0,1fr)}.lk{grid-template-columns:auto minmax(0,1fr)}.lk .h{grid-column:2;text-align:left;font-size:12px}}
+.contact{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:12px;margin-top:22px}
+.c{border:1px solid var(--line);border-radius:20px;padding:18px 20px;display:flex;flex-direction:column;gap:4px;min-width:0;background:rgba(255,255,255,.03)}
+.c small{color:var(--dim);font-size:14px}
+.c .v{font-family:var(--f-mono);font-size:17px;direction:ltr;text-align:right;user-select:all;overflow-wrap:anywhere;text-decoration:none}
+.copy{align-self:flex-start;font:500 13px var(--f-fa);background:none;border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer;color:var(--muted);min-height:36px;margin-top:4px}
+footer{padding-block:60px 90px;text-align:center}
+.end{font-family:var(--f-display);font-weight:800;font-size:clamp(30px, 6vw, 70px);line-height:1.05;direction:ltr}
+.end em{font-style:normal;color:var(--pink)}
+footer small{display:block;margin-top:16px;color:var(--dim);font-family:var(--f-mono);letter-spacing:.2em;font-size:11px}
+
+@media (max-width: 860px){
+  section{padding-block:80px}
+  .real{grid-template-columns:repeat(2, minmax(0,1fr))}
+  .r1,.r2,.r3,.r4,.r5{grid-column:span 1;margin-top:0}
+  .r4{grid-column:1 / -1}
+  .r3{flex-direction:column}
+  .r5{grid-column:1 / -1}
+  .facts,.mer,.teach,.pages,.contact,.ba{grid-template-columns:minmax(0,1fr)}
+  .journey,.honors,.solo,.cast,.web{grid-template-columns:minmax(0,1fr)}
+  .cast .char:nth-child(3),.journey .job:nth-child(odd){margin-top:0}
+  .mer .reel{order:0}
+  .deco{filter:none;opacity:.6}
+  section{overflow:hidden}
+  .web{gap:24px}
+  .char{grid-template-columns:minmax(0,1fr)}
+  .char-ph img,.char-ph video{aspect-ratio:4/4.2;object-position:50% 70%}
+  .nums b{font-size:26px}
+  .solo{gap:24px}
+  .hero{height:150svh}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important}
+  .pre,.pre.clip{opacity:1;transform:none;clip-path:none}
+}
+</style>
+
+<button id="lang" type="button" aria-label="Switch language">EN</button>
+<div id="gate">
+  <div class="stage">
+    <div class="card3d" id="card">
+      <div class="face front">
+        <button class="captcha" id="tick" type="button" aria-label="I'm not a robot — enter the site">
+          <span class="box"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+          <span class="q">I'm not a robot.</span>
+          <span class="spark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2 Q13 11 22 12 Q13 13 12 22 Q11 13 2 12 Q11 11 12 2 Z"/></svg><span>shim.verify</span></span>
+        </button>
+      </div>
+      <div class="face back">
+        <div class="bk-top"><span class="okb">✓</span><span>…but I teach them.</span></div>
+        <div class="bk-name">Shamim<br>Shamsi</div>
+      </div>
+    </div>
+    <p class="gate-note" data-en='This is not a captcha; it is my business card.<br><b>Tick the box to enter.</b>'>این ربات‌یاب نیست؛ کارت ویزیت منه.<br><b>تیک بزن تا وارد شی.</b></p>
+  </div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="gS" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".95"/><stop offset=".18" stop-color="#C9B8FF"/><stop offset=".6" stop-color="#7A55FF"/><stop offset="1" stop-color="#2A1770"/></radialGradient>
+    <radialGradient id="gP" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".95"/><stop offset=".2" stop-color="#FFB3DA"/><stop offset=".65" stop-color="#FF5FAE"/><stop offset="1" stop-color="#6A1D4F"/></radialGradient>
+    <linearGradient id="gR" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7FD4FF"/><stop offset=".5" stop-color="#A184FF"/><stop offset="1" stop-color="#FF73B9"/></linearGradient>
+    <linearGradient id="gC1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B9A4FF"/><stop offset="1" stop-color="#6A47E8"/></linearGradient>
+    <linearGradient id="gC2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5A3BD0"/><stop offset="1" stop-color="#2E1C7A"/></linearGradient>
+    <linearGradient id="gC3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8E73FF"/><stop offset="1" stop-color="#4A30B8"/></linearGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+    <g id="sphere"><ellipse cx="100" cy="168" rx="70" ry="14" fill="#000" opacity=".35" filter="url(#soft)"/><circle cx="100" cy="95" r="78" fill="url(#gS)"/><ellipse cx="72" cy="58" rx="22" ry="12" fill="#fff" opacity=".55" transform="rotate(-30 72 58)"/></g>
+    <g id="pink"><ellipse cx="100" cy="168" rx="60" ry="12" fill="#000" opacity=".3" filter="url(#soft)"/><circle cx="100" cy="95" r="70" fill="url(#gP)"/><ellipse cx="76" cy="62" rx="18" ry="10" fill="#fff" opacity=".5" transform="rotate(-30 76 62)"/></g>
+    <g id="ring" fill="none"><ellipse cx="100" cy="100" rx="82" ry="40" stroke="url(#gR)" stroke-width="18" transform="rotate(-22 100 100)" opacity=".95"/><ellipse cx="100" cy="100" rx="82" ry="40" stroke="#fff" stroke-width="3" transform="rotate(-22 100 100)" opacity=".35"/></g>
+    <g id="cube"><path d="M100 30 L170 65 L100 100 L30 65 Z" fill="url(#gC1)"/><path d="M30 65 L100 100 L100 180 L30 145 Z" fill="url(#gC2)"/><path d="M170 65 L100 100 L100 180 L170 145 Z" fill="url(#gC3)"/></g>
+    <g id="spark"><path d="M100 10 C106 70 130 94 190 100 C130 106 106 130 100 190 C94 130 70 106 10 100 C70 94 94 70 100 10 Z" fill="url(#gR)"/><path d="M100 60 C103 90 110 97 140 100 C110 103 103 110 100 140 C97 110 90 103 60 100 C90 97 97 90 100 60 Z" fill="#fff" opacity=".7"/></g>
+    <g id="blob"><path d="M55 40 C100 0 170 20 185 80 C200 140 150 190 90 185 C30 180 0 120 20 75 C28 58 40 52 55 40 Z" fill="url(#gC1)" opacity=".85"/><ellipse cx="80" cy="60" rx="30" ry="16" fill="#fff" opacity=".35" transform="rotate(-25 80 60)"/></g>
+  </defs>
+</svg>
+<div class="depthfield" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<header class="hero" id="top">
+  <div class="pin bars" id="pin">
+    <div class="rays" aria-hidden="true"></div>
+    <canvas id="bokeh" aria-hidden="true"></canvas>
+    <div class="bignm" id="bignm" aria-hidden="true"><span>Shamim</span><span>Shamsi</span></div>
+    <canvas id="stage" role="img" aria-label="آواتار سه‌بعدی شمیم شمسی که دست تکان می‌دهد"></canvas>
+    <img id="fallback" src="assets/avatar.webp" alt="" hidden>
+    <div id="front" aria-hidden="true">
+      <i style="width:140px;height:140px;top:18%;left:6%;background:#FF73B9"></i>
+      <i style="width:90px;height:90px;top:62%;right:8%;background:#A184FF;animation-delay:-4s"></i>
+      <i style="width:60px;height:60px;top:30%;right:22%;background:#7FD4FF;animation-delay:-7s"></i>
+    </div>
+    <div class="topbar"><span class="rec"><i></i>REC · SHIM STUDIO</span><span>SC.01 — TAKE 1</span></div>
+    <div class="hud">
+      <div class="credit">AI ARTIST · CREATIVE DIRECTOR · SHIM STUDIO</div>
+      <div class="hl seq" id="seq">
+        <div class="on" data-en='Hi, I am <span class="en">Shamim Shamsi</span>'>سلام، من <span class="en">Shamim Shamsi</span> هستم</div>
+        <div><span class="en">I'm not a robot.</span></div>
+        <div><b class="en">…but I teach them.</b></div>
+        <div data-en='I build visual worlds and characters'>جهان‌ها و شخصیت‌های تصویری می‌سازم</div>
+        <div data-en='<b>Story first.</b> Tools second.'><b>اول داستان.</b> بعد ابزار.</div>
+      </div>
+      <div class="cue">SCROLL ↓</div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="real">
+    <div class="wrap">
+      <span class="eyebrow">BEHIND THE AVATAR</span>
+      <h2 data-en='Behind the avatar, <span class="en">me.</span>'>پشت آواتار، <span class="en">me.</span></h2>
+      <p class="lead" data-en='AI artist, creative director and founder of <span class="en">Shim Studio</span>. Currently Digital Business Development &amp; Marketing Manager at Behin Gostar. My path began in dramatic literature, animation and character design, and led to creative direction, advertising content and virtual characters. My focus: connecting storytelling, visual identity and technology to real business goals.'>هنرمند هوش مصنوعی، مدیر خلاقیت و بنیان‌گذار <span class="en">Shim Studio</span>. در حال حاضر مدیر توسعهٔ کسب‌وکار دیجیتال و بازاریابی شرکت بهین گستر هستم. مسیرم از ادبیات نمایشی، انیمیشن و طراحی شخصیت شروع شد و به کارگردانی خلاق، تولید محتوای تبلیغاتی و خلق شخصیت‌های مجازی رسید. تمرکزم پیوند داستان‌پردازی، هویت بصری و فناوری با اهداف واقعی کسب‌وکارهاست.</p>
+      <div class="solo">
+        <figure class="ph solo-ph reveal clip" style="margin:0"><img src="assets/s1.jpg" alt="شمیم شمسی کنار دیوار بتنی، با لبخند به کنار نگاه می‌کند" data-par=".06"><figcaption>LIFESTYLE · CREATIVE · AI</figcaption></figure>
+        <svg class="deco" data-depth=".18" style="width:min(420px,60vw);left:-6%;top:-8%" viewBox="0 0 200 200" aria-hidden="true"><use href="#sphere"/></svg>
+        <svg class="deco" data-depth="-.25" style="width:min(260px,40vw);right:-4%;bottom:6%" viewBox="0 0 200 200" aria-hidden="true"><use href="#ring"/></svg>
+      <div class="facts facts-side">
+        <div class="fact reveal" data-en='<b>From idea to delivery</b><span>Concept, moodboard, storyboard, image, video, motion, sound and post</span>'><b>از ایده تا خروجی</b><span>کانسپت، مودبورد، استوری‌بورد، تصویر، ویدیو، موشن، صدا و پس‌تولید</span></div>
+        <div class="fact reveal" data-en='<b>From art to AI</b><span>Animation, character design, screenwriting, illustration, voice, CGI, motion, VFX</span>'><b>از هنر تا هوش مصنوعی</b><span>انیمیشن، طراحی کاراکتر، فیلم‌نامه، تصویرسازی، گویندگی، CGI و موشن، VFX</span></div>
+        <div class="fact reveal" data-en='<b>AI web design</b><span>Living, story-driven websites, like this one</span>'><b>طراحی سایت با AI</b><span>سایت‌های داستان‌گو و زنده، مثل همین سایت</span></div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="merisa">
+    <div class="wrap">
+      <span class="eyebrow">CASE STUDY · @MERIII3A</span>
+      <h2 data-en='Merisa'>مریسا</h2>
+      <p class="lead" data-en='An influential virtual influencer I designed, built and manage from scratch. Like a real influencer she books ads, works with brands and has an audience that follows her.'>اینفلوئنسر مجازی تأثیرگذاری که از صفر طراحی، ساخته و مدیریتش کردم. مثل یک اینفلوئنسر واقعی تبلیغات می‌گیرد، با برندها همکاری می‌کند و مخاطب‌هایش او را دنبال می‌کنند.</p>
+      <div class="mer">
+        <svg class="deco slow" data-depth=".22" style="width:min(220px,36vw);right:-14%;top:-34%" viewBox="0 0 200 200" aria-hidden="true"><use href="#pink"/></svg>
+        <svg class="deco" data-depth="-.18" style="width:min(150px,26vw);left:-9%;top:-6%" viewBox="0 0 200 200" aria-hidden="true"><use href="#spark"/></svg>
+        <div class="reel reveal tilt">
+          <video src="assets/merisa_reel.mp4" poster="assets/merisa_reel.jpg" autoplay muted loop playsinline preload="metadata" aria-label="ویدیوی مریسا"></video><button class="snd" type="button" data-for="reel" aria-label="صدا">🔇</button>
+          <span class="tag">MERIII3A · REEL</span>
+        </div>
+        <div class="reveal">
+          <p class="mline" data-en='From one idea I turned her into <span class="morph" id="morph">a character</span>'>از یک ایده رساندمش به <span class="morph" id="morph">یک شخصیت</span></p>
+          <div class="kpis">
+            <div class="kpi big"><b data-to="60" data-suf="M+">60M+</b><span data-en='views on the page dashboard'>بازدید در داشبورد پیج</span></div>
+            <div class="kpi"><b data-to="240" data-suf="K">240K</b><span data-en='followers in 6 months'>دنبال‌کننده در ۶ ماه</span></div>
+            <div class="kpi"><b>ADS</b><span data-en='real on-site and voice ads, brand collaborations'>تبلیغات واقعی حضوری و گویشی، همکاری با برندها</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="ba">
+        <div class="ba-head"><span class="eyebrow">BEFORE / AFTER</span><h3 data-en='I say it. Merisa says it.'>من می‌گویم، مریسا می‌گوید.</h3><p data-en='Filmed on me, then transformed into Merisa with AI. Same words, same moment; a new face.'>روی خودم فیلم‌برداری شده و با هوش مصنوعی به مریسا تبدیل شده؛ همان حرف، همان لحظه، یک چهرهٔ تازه.</p></div>
+        <div class="ba-grid" id="ba">
+          <figure class="ba-v reveal"><video src="assets/ba_me.mp4" poster="assets/ba_me.jpg" autoplay muted loop playsinline preload="auto" aria-label="شمیم در حال صحبت"></video><figcaption data-en='BEFORE · Shamim' data-en='BEFORE · Shamim'>قبل · شمیم</figcaption></figure>
+          <figure class="ba-v reveal"><video src="assets/ba_merisa.mp4" poster="assets/ba_merisa.jpg" autoplay muted loop playsinline preload="auto" aria-label="مریسا همان جمله را می‌گوید"></video><figcaption data-en='AFTER · Merisa' data-en='AFTER · Merisa'>بعد · مریسا</figcaption></figure>
+          <button class="snd ba-snd" type="button" data-for="ba" aria-label="صدا">🔇</button>
+        </div>
+      </div>
+      <div class="strip" aria-label="تصاویر مریسا">
+        <figure style="--r:-3deg"><img src="assets/m1.jpg" alt="مریسا در آینه با موهای فرفری جمع‌شده" loading="lazy"></figure>
+        <figure style="--r:2deg"><img src="assets/m3.jpg" alt="نمای نزدیک چهرهٔ مریسا با چشم‌های دو رنگ" loading="lazy"></figure>
+        <figure style="--r:-2deg"><img src="assets/m2.jpg" alt="مریسا با لیوان قهوه در اتاق" loading="lazy"></figure>
+        <figure style="--r:3deg"><img src="assets/m5.jpg" alt="مریسا در کافه با لباس سفید" loading="lazy"></figure>
+        <figure style="--r:-1deg"><img src="assets/m4.jpg" alt="سلفی مریسا با نوشیدنی" loading="lazy"></figure>
+      </div>
+      <p class="trait" data-en='“Differences are not the enemy; they are part of beauty.” Her two-colored eyes and vitiligo are a registered part of her identity: a real, unrepeatable face in beauty, fashion and lifestyle.'>«تفاوت‌ها دشمن نیستن، بخشی از زیبایی‌ان.» چشم‌های دو رنگ و لک‌های ویتیلیگو بخش ثبت‌شدهٔ هویت اوست؛ یک چهرهٔ واقعی و غیرتکراری در دنیای زیبایی، مد و سبک زندگی.</p>
+    </div>
+  </section>
+
+  <section id="cast">
+    <div class="wrap">
+      <span class="eyebrow">MORE CHARACTERS</span>
+      <h2 data-en='My other characters'>بقیهٔ کاراکترهایم</h2>
+      <p class="lead" data-en='Merisa is not alone. I built each of these from scratch, and they went viral fast.'>مریسا تنها نیست. هر کدام از این‌ها را از صفر ساختم و خیلی زود وایرال شدند.</p>
+      <div class="cast">
+        <svg class="deco slow" data-depth=".16" style="width:min(340px,50vw);left:-10%;bottom:-16%" viewBox="0 0 200 200" aria-hidden="true"><use href="#cube"/></svg>
+        <article class="char reveal tilt">
+          <div class="char-ph"><video src="assets/khobii.mp4" poster="assets/khobii_poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="مستر خوبی در حال صحبت"></video><button class="snd" type="button" data-for="khobii" aria-label="صدا">🔇</button></div>
+          <div class="char-body">
+            <a class="handle en" href="https://instagram.com/mr.khobii" target="_blank" rel="noopener">@mr.khobii</a>
+            <h3 data-en='Mr. Khobii'>مستر خوبی</h3>
+            <p data-en='Everyone thought he was real and he blew up: 4,000 followers in a single day. His voice is AI too; turn the sound on.'>همه فکر می‌کردند واقعی است و کلی هیت شد؛ در یک روز به ۴ هزار نفر رسید. صدایش هم ساختهٔ هوش مصنوعی است؛ صدا را روشن کن.</p>
+            <div class="nums"><div><b class="en">12.3M</b><span data-en='views in 30 days'>بازدید در ۳۰ روز</span></div><div><b class="en">2.9M</b><span data-en='views on one reel'>بازدید یک ریل</span></div></div>
+          </div>
+        </article>
+        <article class="char reveal tilt">
+          <div class="char-ph"><video src="assets/velin.mp4" poster="assets/velin_poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="ولین در حال خواندن آهنگ تو رفتی"></video><button class="snd" type="button" data-for="velin" aria-label="صدا">🔇</button></div>
+          <div class="char-body">
+            <a class="handle en" href="https://instagram.com/velin_voice" target="_blank" rel="noopener">@velin_voice</a>
+            <h3 data-en='Velin'>ولین</h3>
+            <p data-en='A virtual singer. She writes, sings and releases her own songs; voice, face and music all made with AI. Turn the sound on and hear “To Rafti”.'>خواننده است؛ آهنگ می‌خواند و منتشر می‌کند. صدا، چهره و موزیک‌هایش همه ساختهٔ هوش مصنوعی است. صدا را روشن کن و «تو رفتی» را بشنو.</p>
+            <div class="nums"><div><b class="en">106K</b><span data-en='followers'>دنبال‌کننده</span></div><div><b class="en">44</b><span data-en='songs and posts'>آهنگ و پست</span></div></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="brands">
+    <div class="wrap">
+      <span class="eyebrow">SELECTED BRANDS</span>
+      <h2 data-en='Brands we built together'>برندهایی که با هم ساختیم</h2>
+    </div>
+    <div class="marquee" aria-label="برندها">
+      <div class="track"><span data-en='Mihan'>میهن</span><span data-en='Kalleh Pro'>کاله پرو</span><span data-en='Hamrah Aval'>همراه اول</span><span data-en='Tanis'>تانیس</span><span data-en='Domino'>دومینو</span><span data-en='Alis'>عالیس</span><span data-en='Panda'>پاندا</span><span data-en='Deluse'>دلوسه</span><span data-en='Gilani'>گیلانی</span><span class="l">Golden Concept</span><span class="l">Body Studio Dubai</span>
+        <span aria-hidden="true" data-en='Mihan'>میهن</span><span aria-hidden="true" data-en='Kalleh Pro'>کاله پرو</span><span aria-hidden="true" data-en='Hamrah Aval'>همراه اول</span><span aria-hidden="true" data-en='Tanis'>تانیس</span><span aria-hidden="true" data-en='Domino'>دومینو</span><span aria-hidden="true" data-en='Alis'>عالیس</span><span aria-hidden="true" data-en='Panda'>پاندا</span><span aria-hidden="true" data-en='Deluse'>دلوسه</span><span aria-hidden="true" data-en='Gilani'>گیلانی</span><span class="l" aria-hidden="true">Golden Concept</span><span class="l" aria-hidden="true">Body Studio Dubai</span></div>
+      <div class="track rev" aria-hidden="true"><span class="l">GITEX Dubai</span><span data-en='Flamingo Tehran'>فلامینگو تهران</span><span class="l">Flamix</span><span data-en='Mica Mall Kish'>میکامال کیش</span><span class="l">BoBo</span><span data-en='Hamidi Jewelry'>جواهری حمیدی</span><span class="l">Aura</span><span data-en='Petro Artan Part'>پترو آرتان پارت</span><span class="l">Deep Studio Dubai</span><span data-en='Halloween Kish'>هالووین کیش</span><span class="l">GITEX Dubai</span><span data-en='Flamingo Tehran'>فلامینگو تهران</span><span class="l">Flamix</span><span data-en='Mica Mall Kish'>میکامال کیش</span><span class="l">BoBo</span><span data-en='Hamidi Jewelry'>جواهری حمیدی</span><span class="l">Aura</span><span data-en='Petro Artan Part'>پترو آرتان پارت</span><span class="l">Deep Studio Dubai</span><span data-en='Halloween Kish'>هالووین کیش</span></div>
+    </div>
+  </section>
+
+  <section id="journey">
+    <div class="wrap">
+      <span class="eyebrow">THE JOURNEY</span>
+      <h2 data-en='The journey'>مسیر کاری</h2>
+      <div class="journey">
+        <svg class="deco" data-depth="-.2" style="width:min(220px,34vw);right:-6%;top:-18%" viewBox="0 0 200 200" aria-hidden="true"><use href="#ring"/></svg>
+        <div class="job reveal tilt"><div class="w">Behin Gostar · Now</div><h3 data-en='Digital Business Development &amp; Marketing Manager'>مدیر توسعهٔ کسب‌وکار دیجیتال و بازاریابی</h3><p data-en='Leading the digital presence, brand and marketing of Behin Gostar Zarin Vash.'>هدایت حضور دیجیتال، برند و بازاریابی شرکت بهین گستر زرین وش.</p></div>
+        <div class="job reveal"><div class="w">Shim Studio</div><h3 data-en='Founder &amp; Creative Director'>بنیان‌گذار و کارگردان خلاق</h3><p data-en='Concept and art direction for AI-led ad campaigns, from brief to final delivery.'>ایده‌پردازی و کارگردانی هنری کمپین‌های تبلیغاتی با AI، از بریف تا تحویل نهایی.</p></div>
+        <div class="job reveal"><div class="w">Deep Studio Dubai</div><h3 data-en='Creative Production Supervisor'>سرپرست تولید خلاق</h3><p data-en='Team coordination, output review and visual consistency on international projects.'>هماهنگی تیم، بازبینی خروجی‌ها و حفظ انسجام بصری پروژه‌های بین‌المللی.</p></div>
+        <div class="job reveal"><div class="w">GITEX Dubai</div><h3 data-en='AI visual production for Hamrah Aval'>تولید تصویری برای همراه اول</h3><p data-en='AI-driven visual content for Hamrah Aval at GITEX Dubai.'>محتوای بصری مبتنی بر هوش مصنوعی برای حضور همراه اول در جیتکس.</p></div>
+        <div class="job reveal"><div class="w">Dubai Real Estate</div><h3 data-en='Creative real-estate projects'>پروژه‌های خلاق املاک</h3><p data-en='Cinematic advertising output for Dubai real estate.'>خروجی‌های تبلیغاتی با نگاه سینمایی برای املاک دبی.</p></div>
+        <div class="job reveal"><div class="w">Industrial</div><h3 data-en='Industrial photographer &amp; Instagram admin'>عکاس صنعتی و ادمین اینستاگرام</h3><p data-en='Two years at an industrial company, where I learned photography, content and page management up close.'>دو سال کار در یک شرکت صنعتی؛ جایی که عکاسی، محتوا و مدیریت پیج را از نزدیک یاد گرفتم.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="honors">
+    <div class="wrap">
+      <span class="eyebrow">HONORS</span>
+      <h2 data-en='Honors'>افتخارات</h2>
+      <svg class="deco slow" data-depth=".12" style="width:min(260px,40vw);left:-8%;top:30%" viewBox="0 0 200 200" aria-hidden="true"><use href="#sphere"/></svg>
+      <div class="certs" id="certs">
+        <figure class="cert reveal"><img src="assets/cert2.jpg" alt="لوح مقام دوم کشوری رشتهٔ انیمیشن" loading="lazy"><figcaption><b data-en='2nd place, national'>رتبهٔ دوم کشور</b><span data-en='Animation Olympiad · 2017'>المپیاد انیمیشن · ۱۳۹۶</span></figcaption></figure>
+        <figure class="cert reveal"><img src="assets/cert1.jpg" alt="لوح مقام دوم کشوری فیلم‌نامهٔ انیمیشن" loading="lazy"><figcaption><b data-en='2nd place, national'>رتبهٔ دوم کشور</b><span data-en='Animation screenplay · 2017'>فیلم‌نامهٔ انیمیشن · ۱۳۹۶</span></figcaption></figure>
+        <figure class="cert reveal"><img src="assets/cert3.jpg" alt="لوح رتبهٔ اول فیلم پویانمایی جشنوارهٔ نوجوان سالم" loading="lazy"><figcaption><b data-en='1st place'>رتبهٔ اول</b><span data-en='Animation film · Healthy Youth Festival'>فیلم پویانمایی · جشنوارهٔ نوجوان سالم</span></figcaption></figure>
+        <figure class="cert reveal"><img src="assets/cert6.jpg" alt="لوح رتبهٔ دوم تصویرسازی" loading="lazy"><figcaption><b data-en='2nd place'>رتبهٔ دوم</b><span data-en='Illustration (watercolor &amp; pencil)'>تصویرسازی (آبرنگ و مدادرنگی)</span></figcaption></figure>
+        <figure class="cert reveal"><img src="assets/cert4.jpg" alt="لوح برگزیدهٔ مرحلهٔ تئوری کشوری" loading="lazy"><figcaption><b data-en='Selected'>برگزیده</b><span data-en='National theory round · skills competitions'>مرحلهٔ تئوری کشوری مسابقات علمی‌عملی</span></figcaption></figure>
+        <figure class="cert reveal"><img src="assets/cert5.jpg" alt="تقدیرنامهٔ رتبهٔ دوم انیمیشن" loading="lazy"><figcaption><b data-en='Honor'>تقدیرنامه</b><span data-en='Animation · Karaj District 1'>انیمیشن · ناحیهٔ یک کرج</span></figcaption></figure>
+        <figure class="cert reveal"><img src="assets/cert7.jpg" alt="لوح سپاس مسابقات کشوری هنرستان‌ها" loading="lazy"><figcaption><b data-en='Appreciation'>لوح سپاس</b><span data-en='National skills competitions · Arak'>مسابقات کشوری هنرستان‌ها · اراک</span></figcaption></figure>
+      </div>
+      <ol class="honors more">
+        <li class="hon reveal"><span class="k" data-en='Selected talent'>استعداد منتخب</span><h3 data-en='Character design test, <span class="en">Disneyland Paris</span>'>آزمون طراحی کاراکتر <span class="en">Disneyland Paris</span></h3><p data-en='Designed a character in under 10 minutes, on site'>طراحی یک کاراکتر در کمتر از ۱۰ دقیقه، در آزمون حضوری</p></li>
+        <li class="hon reveal"><span class="k" data-en='1st place'>رتبهٔ اول</span><h3 data-en='Dubbing &amp; voice test'>آزمون دوبله و فن بیان</h3><p class="en">Glory Entertainment</p></li>
+        <li class="hon reveal"><span class="k" data-en='Certificate'>مدرک</span><h3><span class="en">Digital Marketing</span></h3><p class="en">Google Digital Garage</p></li>
+        <li class="hon reveal"><span class="k" data-en='Bachelor’s degree'>مدرک کارشناسی</span><h3 data-en='Dramatic Literature, Soore University'>ادبیات نمایشی، دانشگاه سوره</h3></li>
+        <li class="hon reveal"><span class="k" data-en='Certificate'>مدرک</span><h3 data-en='Web design, Tehran Technical University'>طراحی سایت، دانشگاه فنی تهران</h3></li>
+        <li class="hon reveal"><span class="k" data-en='Certificate'>مدرک</span><h3 data-en='AI fundamentals, Tehran Chamber of Commerce, Industries &amp; Mines'>مبانی هوش مصنوعی، اتاق بازرگانی، صنایع و معادن تهران</h3></li>
+        <li class="hon reveal"><span class="k" data-en='Published'>ثبت آثار</span><h3 data-en='“Art and the Artist” book'>کتاب «هنر و هنرمند»</h3></li>
+      </ol>
+      <div class="lightbox" id="lb" hidden><button class="lb-x" type="button" aria-label="بستن">×</button><img src="" alt=""></div>
+    </div>
+  </section>
+
+  <section id="web">
+    <div class="wrap">
+      <span class="eyebrow">NOW · AI WEB DESIGN</span>
+      <h2 data-en='Websites that tell stories'>سایت‌هایی که قصه می‌گویند</h2>
+      <p class="lead" data-en='These days I design websites with AI: not static pages, but narrative sites that move as you scroll and hold the visitor. The site you are on right now is one of them.'>این روزها با هوش مصنوعی سایت طراحی می‌کنم؛ نه صفحه‌های ساکن، بلکه سایت‌هایی با روایت و داستان‌گویی که با اسکرول جلو می‌روند و کاربر را نگه می‌دارند. همین سایتی که الان در آن هستی، یکی از آن‌هاست.</p>
+      <svg class="deco" data-depth=".2" style="width:min(360px,52vw);right:-12%;top:-6%" viewBox="0 0 200 200" aria-hidden="true"><use href="#blob"/></svg>
+      <div class="web">
+        <div class="wf reveal"><b class="en">01</b><h3 data-en='Narrative, not pages'>روایت به‌جای صفحه</h3><p data-en='Each site is built like a short film: entry, climax, call to action.'>هر سایت مثل یک فیلم کوتاه ساخته می‌شود: ورود، اوج، و دعوت به اقدام.</p></div>
+        <div class="wf reveal"><b class="en">02</b><h3 data-en='Live motion and 3D'>موشن و سه‌بعدی زنده</h3><p data-en='Motion, parallax and 3D scenes that run inside the page itself.'>حرکت، پارالاکس و صحنه‌های سه‌بعدی که داخل خود صفحه اجرا می‌شوند.</p></div>
+        <div class="wf reveal"><b class="en">03</b><h3 data-en='Fast, no code'>سریع و بدون کد</h3><p data-en='From idea to a finished site in about a week, with a custom visual identity.'>از ایده تا سایت آماده در حدود یک هفته، با هویت بصری اختصاصی برند.</p></div>
+      </div>
+      <a class="btn-line" href="https://instagram.com/shim.academy" target="_blank" rel="noopener" data-en='Samples and orders on Instagram ↗'>نمونه‌ها و سفارش در اینستاگرام ↗</a>
+    </div>
+  </section>
+
+  <section id="press">
+    <div class="wrap">
+      <span class="eyebrow">IN THE PRESS</span>
+      <h2 data-en='In the press'>در رسانه‌ها</h2>
+      <p class="lead" data-en='Interviews and articles about my work in animation, character design and AI.'>مصاحبه‌ها و مقاله‌هایی دربارهٔ کار من در انیمیشن، طراحی کاراکتر و هوش مصنوعی.</p>
+      <div class="press">
+        <figure class="clip reveal"><img src="assets/press1.jpg" alt="مصاحبهٔ روزنامهٔ رویکرد هفته کیش با شمیم شمسی" loading="lazy"><figcaption><b data-en='Rooykard-e Hafteh Kish'>رویکرد هفته کیش</b><span data-en='“Mental ideation to create real-world characters” · Nov 2024'>«ایده‌پردازی‌های ذهنی برای خلق کاراکترهای دنیای واقعی» · آبان ۱۴۰۳</span></figcaption></figure>
+        <figure class="clip reveal"><img src="assets/press2.jpg" alt="مقالهٔ انگلیسی تأثیر هوش مصنوعی در انیمیشن" loading="lazy"><figcaption><b data-en='Rooykard-e Hafteh Kish · English page'>رویکرد هفته کیش · صفحهٔ انگلیسی</b><span data-en='“The Impact of Artificial Intelligence in Animation”'>«The Impact of Artificial Intelligence in Animation»</span></figcaption></figure>
+        <div class="clip txt reveal"><b data-en='Hamshahri Alborz'>همشهری البرز</b><span data-en='Interview'>مصاحبه</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="teach">
+    <div class="wrap">
+      <span class="eyebrow">SHIM.ACADEMY</span>
+      <h2 data-en='Teaching'>آموزش</h2>
+      <svg class="deco slow" data-depth="-.15" style="width:min(240px,36vw);left:-6%;top:-10%" viewBox="0 0 200 200" aria-hidden="true"><use href="#spark"/></svg>
+      <div class="teach">
+        <div>
+          <div class="ages">7 → 50</div>
+          <p class="lead" style="margin:10px 0 20px" data-en='Years of project-based AI teaching, from 7-year-olds to 50-year-olds; everyone starts from zero and finishes with a real project. Taught at Mika Gallery, Bagh-e Honar and Haft Honar.'>چند سال تدریس پروژه‌محور هوش مصنوعی برای کودک ۷ ساله تا بزرگسال ۵۰ ساله؛ همه از صفر شروع می‌کنند و با یک پروژهٔ واقعی تمام می‌کنند. سابقهٔ تدریس در گالری میکا، باغ هنر و هفت هنر.</p>
+          <div class="topics"><span data-en='Advanced prompting'>پرامپت‌نویسی پیشرفته</span><span data-en='Image &amp; video generation'>تولید تصویر و ویدیو</span><span data-en='AI tools'>ابزارهای AI</span><span data-en='AI for business'>AI برای کسب‌وکار</span><span data-en='AI advertising'>تبلیغات با AI</span><span data-en='Virtual influencers'>اینفلوئنسر مجازی</span></div>
+        </div>
+        <figure class="desk reveal clip tilt" style="margin:0;transform:rotate(2deg)"><img src="assets/desk.webp" alt="آواتار شمیم در حال کار با لپ‌تاپ"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="ig">
+    <div class="wrap">
+      <span class="eyebrow">ON INSTAGRAM</span>
+      <h2 data-en='Step into my Instagram'>وارد اینستاگرام من شو</h2>
+      <p class="lead" data-en='Four pages, four worlds. Tap any of them.'>چهار صفحه، چهار دنیا؛ روی هر کدام بزن.</p>
+    </div>
+    <div class="phones" aria-label="صفحه‌های اینستاگرام">
+      <a class="phone" href="https://instagram.com/shim.academy" target="_blank" rel="noopener" style="--i:0"><span class="notch"></span><img src="assets/ig_shim.jpg" alt="صفحهٔ اینستاگرام shim.academy" loading="lazy"><b>@shim.academy</b></a>
+      <a class="phone" href="https://instagram.com/meriii3a" target="_blank" rel="noopener" style="--i:1"><span class="notch"></span><img src="assets/ig_merisa.jpg" alt="صفحهٔ اینستاگرام مریسا" loading="lazy"><b>@meriii3a</b></a>
+      <a class="phone" href="https://instagram.com/mr.khobii" target="_blank" rel="noopener" style="--i:2"><span class="notch"></span><img src="assets/ig_khobii.jpg" alt="صفحهٔ اینستاگرام مستر خوبی" loading="lazy"><b>@mr.khobii</b></a>
+      <a class="phone" href="https://instagram.com/velin_voice" target="_blank" rel="noopener" style="--i:3"><span class="notch"></span><img src="assets/ig_velin.jpg" alt="صفحهٔ اینستاگرام ولین" loading="lazy"><b>@velin_voice</b></a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <span class="eyebrow">LET'S CREATE</span>
+      <h2 data-en='Let’s create together'>بیا با هم بسازیم</h2>
+      <p class="lead" data-en='Open to project, team and remote collaboration; I have worked with brands and teams in Iran and Dubai.'>برای همکاری پروژه‌ای، تیمی و از راه دور آماده‌ام؛ با برندها و تیم‌هایی در ایران و دبی کار کرده‌ام.</p>
+      <svg class="deco" data-depth=".18" style="width:min(300px,44vw);right:-10%;bottom:-8%" viewBox="0 0 200 200" aria-hidden="true"><use href="#pink"/></svg>
+
+      <div class="links">
+        <a class="lk" href="https://instagram.com/shim.academy" target="_blank" rel="noopener" style="--c1:#FF7A59;--c2:#D62976;--c3:#962FBF">
+          <span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg></span>
+          <span class="t"><b>Instagram</b><small data-en='My page: AI, creativity and teaching'>پیج خودم: هوش مصنوعی، خلاقیت و آموزش</small></span><span class="h">@shim.academy</span></a>
+        <a class="lk" href="https://instagram.com/shim.project" target="_blank" rel="noopener" style="--c1:#FF5FAE;--c2:#A184FF;--c3:#6A47E8">
+          <span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 9h18M8 5v4M16 5v4"/><path d="M10.5 12.5v4l3.5-2z" fill="#fff" stroke="none"/></svg></span>
+          <span class="t"><b data-en='Selected work'>نمونه‌کارها</b><small data-en='Projects, ads and campaigns'>پروژه‌ها، تبلیغ‌ها و کمپین‌ها</small></span><span class="h">@shim.project</span></a>
+        <a class="lk" href="https://www.linkedin.com/in/shamim-shamsi-88559a16b" target="_blank" rel="noopener" style="--c1:#5FB4FF;--c2:#0A66C2;--c3:#084B8A">
+          <span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 10v7M8 7v.5M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg></span>
+          <span class="t"><b>LinkedIn</b><small data-en='Résumé and professional background'>رزومه و سوابق حرفه‌ای</small></span><span class="h">shamim-shamsi</span></a>
+        <a class="lk" href="https://wa.me/989125693700" target="_blank" rel="noopener" style="--c1:#6BF59A;--c2:#25D366;--c3:#128C7E">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.8A8 8 0 1 1 8.2 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.6-1.8-.9-.8.9c-1.1-.5-2-1.4-2.5-2.5l.9-.8-.9-1.8z" fill="#fff" stroke="none"/></svg></span>
+          <span class="t"><b>WhatsApp</b><small data-en='Direct message for projects and courses'>پیام مستقیم برای پروژه و دوره</small></span><span class="h">+98 912 569 3700</span></a>
+        <a class="lk" href="https://t.me/shimstudio" target="_blank" rel="noopener" style="--c1:#7FD4FF;--c2:#2AABEE;--c3:#1C7FB8">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M21 4L3 11l6 2 2 6 3-4 5 3z"/><path d="M9 13l9-7"/></svg></span>
+          <span class="t"><b>Telegram</b><small data-en='Shim Studio channel'>کانال شیم استودیو</small></span><span class="h">t.me/shimstudio</span></a>
+        <a class="lk" href="https://instagram.com/meriii3a" target="_blank" rel="noopener" style="--c1:#FFB3DA;--c2:#FF5FAE;--c3:#9B2E6E">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
+          <span class="t"><b data-en='Merisa'>مریسا</b><small data-en='The virtual influencer'>اینفلوئنسر مجازی</small></span><span class="h">@meriii3a</span></a>
+        <a class="lk copy-lk" href="#contact" data-copy="email" style="--c1:#FFD27A;--c2:#FFA51F;--c3:#B86A00">
+          <span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 7l9 6 9-6"/></svg></span>
+          <span class="t"><b data-en='Email'>ایمیل</b><small data-en='Tap to copy'>بزن تا کپی شود</small></span><span class="h" id="email">shamim.shamsi2000@gmail.com</span></a>
+        <a class="lk copy-lk" href="#contact" data-copy="phone" style="--c1:#C9B8FF;--c2:#7A55FF;--c3:#3B2496">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+          <span class="t"><b data-en='Phone'>تلفن</b><small data-en='Tap to copy'>بزن تا کپی شود</small></span><span class="h" id="phone">+98 912 569 3700</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <div class="end">I'm not a robot.<br><em>…but I teach them.</em></div>
+    <small>© SHAMIM SHAMSI — THE END</small>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var started=false;
+
+  /* gate */
+  var gate=document.getElementById('gate'), tick=document.getElementById('tick'), card=document.getElementById('card');
+  if(location.hash){gate.remove();started=true}else{document.body.classList.add('locked')}
+  tick.addEventListener('click',function(){
+    if(tick.classList.contains('on'))return;
+    tick.classList.add('on');
+    if(reduce){gate.remove();document.body.classList.remove('locked');started=true;return}
+    setTimeout(function(){card.classList.add('flip')},450);
+    setTimeout(function(){card.classList.add('zoom');gate.classList.add('dive');started=true},1700);
+    setTimeout(function(){document.body.classList.remove('locked')},2200);
+    setTimeout(function(){gate.remove()},3300);
+  });
+
+  /* reveals */
+  if(!reduce && 'IntersectionObserver' in window){
+    var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');ro.unobserve(e.target)}})},{threshold:.12});
+    document.querySelectorAll('.reveal,.phone').forEach(function(el){if(el.getBoundingClientRect().top>innerHeight){el.classList.add('pre');ro.observe(el)}});
+    document.querySelectorAll('.phone').forEach(function(p,i){p.style.transitionDelay=(i*.12)+'s'});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(!e.isIntersecting)return; io.unobserve(e.target);
+      var el=e.target,to=+el.dataset.to,suf=el.dataset.suf,t0=performance.now();
+      (function step(t){var k=Math.min(1,(t-t0)/1500);el.textContent=Math.round(to*(1-Math.pow(1-k,3)))+suf;if(k<1)requestAnimationFrame(step)})(t0);
+    })},{threshold:.6});
+    document.querySelectorAll('.kpi b[data-to]').forEach(function(b){io.observe(b)});
+    var words=['یک شخصیت','یک اینفلوئنسر','یک برند','یک منبع درآمد'],wi=0,m=document.getElementById('morph');
+    setInterval(function(){m.classList.add('out');setTimeout(function(){wi=(wi+1)%words.length;m.textContent=words[wi];m.classList.remove('out')},360)},2300);
+  }
+
+  /* certificate lightbox */
+  var lb=document.getElementById('lb'),lbi=lb.querySelector('img');
+  document.querySelectorAll('.cert').forEach(function(f){f.addEventListener('click',function(){lbi.src=f.querySelector('img').src;lbi.alt=f.querySelector('img').alt;lb.hidden=false;document.body.style.overflow='hidden'})});
+  function lbClose(){lb.hidden=true;document.body.style.overflow=''}
+  lb.addEventListener('click',lbClose);addEventListener('keydown',function(e){if(e.key==='Escape')lbClose()});
+
+  /* sound: only one source at a time; mute again when it scrolls away */
+  var sndBtns=[].slice.call(document.querySelectorAll('.snd'));
+  function groupOf(b){return b.dataset.for==='ba'?[].slice.call(document.querySelectorAll('#ba video')):[b.parentNode.querySelector('video')]}
+  function muteAll(){document.querySelectorAll('video').forEach(function(v){v.muted=true});sndBtns.forEach(function(x){x.textContent='🔇';x.classList.remove('on')})}
+  sndBtns.forEach(function(b){
+    b.addEventListener('click',function(e){
+      e.preventDefault();var vids=groupOf(b),wasOn=b.classList.contains('on');
+      muteAll(); if(wasOn)return;
+      vids.forEach(function(v){v.muted=false;v.currentTime=0;v.play().catch(function(){})});
+      b.textContent='🔊';b.classList.add('on');
+    });
+  });
+  if('IntersectionObserver' in window){
+    var vo=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;
+      if(e.isIntersecting){v.play().catch(function(){})}else{v.pause();if(!v.muted){muteAll()}}
+    })},{threshold:.25});
+    document.querySelectorAll('video').forEach(function(v){vo.observe(v)});
+  }
+  document.addEventListener('visibilitychange',function(){if(document.hidden)muteAll()});
+
+  /* copy */
+  document.querySelectorAll('.copy-lk').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();var el=document.getElementById(a.dataset.copy),sm=a.querySelector('small'),old=sm.textContent;
+      function sel(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r)}
+      try{navigator.clipboard.writeText(el.textContent).then(function(){sm.textContent=document.documentElement.lang==='en'?'Copied':'کپی شد';setTimeout(function(){sm.textContent=old},1600)},sel)}catch(x){sel()}
+    });
+  });
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var el=document.getElementById(b.dataset.copy),old=b.textContent;
+      function sel(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r)}
+      try{navigator.clipboard.writeText(el.textContent).then(function(){b.textContent='کپی شد';setTimeout(function(){b.textContent=old},1600)},sel)}catch(e){sel()}
+    });
+  });
+
+  /* ---------- hero: living avatar ---------- */
+  var hero=document.getElementById('top'), pin=document.getElementById('pin'), big=document.getElementById('bignm'), seq=[].slice.call(document.getElementById('seq').children);
+  var cv=document.getElementById('stage'), bk=document.getElementById('bokeh'), bx=bk.getContext('2d');
+  var mx=0,my=0,tmx=0,tmy=0;
+  addEventListener('pointermove',function(e){tmx=e.clientX/innerWidth-.5;tmy=e.clientY/innerHeight-.5},{passive:true});
+  if(window.DeviceOrientationEvent) addEventListener('deviceorientation',function(e){if(e.gamma!=null){tmx=Math.max(-.5,Math.min(.5,e.gamma/40));tmy=Math.max(-.5,Math.min(.5,(e.beta-45)/60))}},{passive:true});
+
+  var gl=cv.getContext('webgl',{premultipliedAlpha:true,alpha:true,antialias:true});
+  var W,H,DPR=Math.min(devicePixelRatio||1,2);
+  var dots=[];for(var i=0;i<46;i++)dots.push({x:Math.random(),y:Math.random(),r:2+Math.random()*7,z:.2+Math.random(),h:Math.random()<.5?'161,132,255':(Math.random()<.5?'255,115,185':'127,212,255'),s:Math.random()*6});
+
+  function size(){W=pin.clientWidth;H=pin.clientHeight;[cv,bk].forEach(function(c){c.width=W*DPR;c.height=H*DPR});if(gl)gl.viewport(0,0,cv.width,cv.height)}
+  addEventListener('resize',size);size();
+
+  var prog=null,tex=null,imgA=1701/900,loaded=false;
+  if(gl){
+    var vs='attribute vec2 p;uniform vec4 R;varying vec2 v;void main(){v=vec2(p.x,1.-p.y);vec2 q=R.xy+p*R.zw;gl_Position=vec4(q*2.-1.,0.,1.);}';
+    var fs=[
+      'precision mediump float;varying vec2 v;uniform sampler2D T;uniform float t,wave,ar;uniform vec2 M;',
+      'void main(){vec2 uv=v;',
+      ' float br=1.+.008*sin(t*1.6);uv.y=1.-(1.-uv.y)/br;',
+      ' float head=1.-smoothstep(.56,.70,uv.y);',
+      ' uv.x-=head*(.005*sin(t*.8)+M.x*.014);uv.y-=head*(.003*sin(t*1.1)+M.y*.007);',
+      ' float side=smoothstep(.17,.38,abs(uv.x-.47));float hy=smoothstep(.24,.40,uv.y)*(1.-smoothstep(.74,.84,uv.y));',
+      ' uv.x+=side*hy*.006*sin(t*2.0+uv.y*16.);uv.y+=side*hy*.002*cos(t*1.7+uv.x*12.);',
+      ' vec2 pv=vec2(.245,.69);vec2 d=(uv-vec2(.19,.605))*vec2(1.,ar);float hand=1.-smoothstep(.06,.16,length(d));',
+      ' float a=hand*.16*sin(t*7.)*wave;vec2 q=(uv-pv)*vec2(1.,ar);q=vec2(cos(a)*q.x-sin(a)*q.y,sin(a)*q.x+cos(a)*q.y);uv=pv+q/vec2(1.,ar);',
+      ' if(uv.x<0.||uv.x>1.||uv.y<0.||uv.y>1.){gl_FragColor=vec4(0.);return;}',
+      ' vec4 c=texture2D(T,uv);',
+      ' float sweep=pow(max(0.,sin(uv.x*2.6-uv.y*1.4+t*.45)),14.);c.rgb+=vec3(.75,.45,1.)*.18*sweep*c.a;',
+      ' c.rgb+=vec3(.55,.35,1.)*.10*(1.-smoothstep(.0,.5,uv.y))*c.a*(.5+.5*M.x);',
+      ' gl_FragColor=c;}'
+    ].join('\n');
+    function sh(type,src){var s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s}
+    prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,vs));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,fs));gl.linkProgram(prog);
+    if(!gl.getProgramParameter(prog,gl.LINK_STATUS)){gl=null}
+  }
+  if(!gl){document.getElementById('fallback').hidden=false}
+  if(gl){
+    gl.useProgram(prog);
+    var buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([0,0,1,0,0,1,0,1,1,0,1,1]),gl.STATIC_DRAW);
+    var lp=gl.getAttribLocation(prog,'p');gl.enableVertexAttribArray(lp);gl.vertexAttribPointer(lp,2,gl.FLOAT,false,0,0);
+    var U={};['R','T','t','wave','ar','M'].forEach(function(n){U[n]=gl.getUniformLocation(prog,n)});
+    gl.enable(gl.BLEND);gl.blendFunc(gl.ONE,gl.ONE_MINUS_SRC_ALPHA);
+    var img=new Image();img.onload=function(){
+      try{tex=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,tex);gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL,true);
+      gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,img);}catch(e){document.getElementById('fallback').hidden=false;return}
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+      imgA=img.height/img.width;loaded=true;
+    };img.onerror=function(){document.getElementById('fallback').hidden=false};img.src='assets/avatar.webp';
+  }
+
+  var intro=0;
+  function heroProgress(){var r=hero.getBoundingClientRect(),tot=hero.offsetHeight-innerHeight;return tot>0?Math.min(1,Math.max(0,-r.top/tot)):0}
+  function frame(ms){
+    var t=ms/1000; mx+=(tmx-mx)*.06; my+=(tmy-my)*.06;
+    var sp=reduce?0:heroProgress();
+    if(started) intro=Math.min(1,intro+(reduce?1:.012));
+    var ei=1-Math.pow(1-intro,3);
+
+    /* sequence lines */
+    var k=Math.min(seq.length-1,Math.floor(sp*seq.length*1.05));
+    seq.forEach(function(el,i){el.classList.toggle('on',i===k)});
+    pin.style.setProperty('--bar',(7-sp*4)+'svh');
+    big.style.transform='translate('+(mx*-30)+'px,'+(my*-20+sp*-60)+'px) scale('+(1+sp*.25)+')';
+    big.style.opacity=String(1-sp*.6);
+
+    /* bokeh */
+    bx.clearRect(0,0,bk.width,bk.height);
+    for(var i=0;i<dots.length;i++){var d=dots[i];var x=((d.x+t*.004*d.z)%1)*W+mx*-60*d.z,y=((d.y-t*.01*d.z+1)%1)*H+my*-40*d.z-sp*120*d.z;var a=.25+.25*Math.sin(t+d.s);
+      var g=bx.createRadialGradient(x*DPR,y*DPR,0,x*DPR,y*DPR,d.r*3*DPR);g.addColorStop(0,'rgba('+d.h+','+a+')');g.addColorStop(1,'rgba('+d.h+',0)');bx.fillStyle=g;bx.beginPath();bx.arc(x*DPR,y*DPR,d.r*3*DPR,0,7);bx.fill()}
+
+    /* avatar */
+    if(gl&&loaded){
+      gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);
+      var narrow=W<760;
+      var h=H*(narrow?.9:1.04)*(1+sp*.16)*(.96+.04*ei);
+      var w=h/imgA; if(narrow&&w>W*1.05){w=W*1.05;h=w*imgA}
+      var cx=narrow?W*.5:W*.34; cx+=mx*-14;
+      var by=-H*.06 - sp*H*.1 + (1-ei)*H*.05 + my*-8; /* bottom offset from screen bottom */
+      var x0=cx-w/2, y0=by; /* GL y from bottom */
+      gl.uniform4f(U.R,x0/W,y0/H - (h-H*.98)/H*0, w/W, h/H);
+      gl.uniform1f(U.t,t);gl.uniform1f(U.ar,imgA);gl.uniform2f(U.M,mx,my);
+      var wv=Math.pow(Math.max(0,Math.sin(t*.55)),3); gl.uniform1f(U.wave, reduce?0:wv);
+      gl.uniform1i(U.T,0);gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,tex);
+      cv.style.opacity=String(ei);
+      gl.drawArrays(gl.TRIANGLES,0,6);
+    }
+
+    /* depth ornaments */
+    if(!reduce){document.querySelectorAll('.deco').forEach(function(d){var r=d.getBoundingClientRect();if(r.bottom<-300||r.top>innerHeight+300)return;var c=(r.top+r.height/2-innerHeight/2);d.style.transform='translate3d('+(mx*-30*+d.dataset.depth*4)+'px,'+(c*-+d.dataset.depth)+'px,0) rotate('+(c*.02*+d.dataset.depth)+'deg)'})}
+
+    /* parallax on photos */
+    if(!reduce){document.querySelectorAll('[data-par]').forEach(function(im){var r=im.parentNode.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;var c=(r.top+r.height/2-innerHeight/2)/innerHeight;im.style.transform='scale(1.12) translateY('+(c*-100*+im.dataset.par)+'%)'})}
+
+    if(!reduce||!loaded) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  if(reduce){addEventListener('scroll',function(){requestAnimationFrame(frame)},{passive:true})}
+
+  /* language */
+  var langBtn=document.getElementById('lang');
+  function setLang(l){
+    document.documentElement.lang=l;document.documentElement.dir=l==='en'?'ltr':'rtl';
+    document.querySelectorAll('[data-en]').forEach(function(el){if(!el.dataset.fa)el.dataset.fa=el.innerHTML;el.innerHTML=l==='en'?el.dataset.en:el.dataset.fa});
+    langBtn.textContent=l==='en'?'فا':'EN';
+    try{localStorage.setItem('lang',l)}catch(e){}
+  }
+  langBtn.addEventListener('click',function(){setLang(document.documentElement.lang==='en'?'fa':'en')});
+  try{if(localStorage.getItem('lang')==='en')setLang('en')}catch(e){}
+
+  /* 3D tilt on hover (desktop) */
+  if(!reduce && matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('.tilt').forEach(function(el){
+      el.addEventListener('pointermove',function(e){var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform='perspective(900px) rotateY('+(x*10)+'deg) rotateX('+(-y*8)+'deg) translateZ(10px)'});
+      el.addEventListener('pointerleave',function(){el.style.transform=''});
+    });
+  }
+
+  /* desktop: hud on the right half so the avatar owns the left */
+  function layout(){var hud=document.querySelector('.hud');if(innerWidth>=760){hud.style.alignItems='flex-start';hud.style.textAlign='right';hud.style.left='auto';hud.style.right='0';hud.style.width='58%';hud.style.bottom='26%';hud.style.background='none'}else{hud.removeAttribute('style')}}
+  addEventListener('resize',layout);layout();
+})();
+</script>
+
+</body>
+</html>
