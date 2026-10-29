@@ -163,6 +163,19 @@ h2 .en{font-weight:800;color:var(--violet)}
 .snd.on::before{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='11 5 6 9 2 9 2 15 6 15 11 19 11 5'/%3E%3Cpath d='M15.5 8.5a5 5 0 0 1 0 7'/%3E%3Cpath d='M19 5a9 9 0 0 1 0 14'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='11 5 6 9 2 9 2 15 6 15 11 19 11 5'/%3E%3Cpath d='M15.5 8.5a5 5 0 0 1 0 7'/%3E%3Cpath d='M19 5a9 9 0 0 1 0 14'/%3E%3C/svg%3E")}
 .snd.on{background:var(--pink);border-color:var(--pink);color:#fff}
 .snd:hover{transform:scale(1.06)}
+.team{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:36px;position:relative;z-index:1}
+.tm{border:1px solid var(--line);border-radius:26px;padding:28px;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));box-shadow:0 40px 80px -50px #000;min-width:0}
+.tm-k{font-family:var(--f-mono);font-size:12px;letter-spacing:.28em;color:var(--pink);direction:ltr;display:block;text-align:right}
+.tm h3{margin:8px 0 10px;font-size:clamp(26px,3vw,36px);font-weight:900}
+.tm p{margin:0 0 16px;color:var(--muted);line-height:1.9}
+.tm-l{list-style:none;margin:0 0 18px;padding:0;display:grid;gap:8px}
+.tm-l li{position:relative;padding-right:18px;font-size:15px}
+.tm-l li::before{content:"";position:absolute;right:0;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--violet)}
+.tm-a{display:inline-block;font-family:var(--f-mono);font-size:13px;color:var(--sky);text-decoration:none;direction:ltr;border-bottom:1px solid rgba(127,212,255,.4);padding-bottom:2px}
+.roles{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;position:relative;z-index:1}
+.roles span{font-size:13px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+@media (max-width:760px){.team{grid-template-columns:minmax(0,1fr)}.tm{padding:22px}}
+html[lang=en] .tm-l li{padding-right:0;padding-left:18px}html[lang=en] .tm-l li::before{right:auto;left:0}
 .morph{color:var(--pink);display:inline-block;transition:filter .35s, opacity .35s, transform .35s}
 .morph.out{filter:blur(8px);opacity:0;transform:translateY(6px)}
 .mline{font-size:clamp(20px, 2.4vw, 26px);font-weight:900;margin:0 0 18px}
@@ -411,7 +424,7 @@ footer small{display:block;margin-top:16px;color:var(--dim);font-family:var(--f-
     <div class="wrap">
       <span class="eyebrow">BEHIND THE AVATAR</span>
       <h2 data-en='Behind the avatar, <span class="en">me.</span>'>پشت آواتار، <span class="en">me.</span></h2>
-      <p class="lead" data-en='AI artist, creative director and founder of <span class="en">Shim Studio</span>. Currently Digital Business Development &amp; Marketing Manager at Behin Gostar. My path began in dramatic literature, animation and character design, and led to creative direction, advertising content and virtual characters. My focus: connecting storytelling, visual identity and technology to real business goals.'>هنرمند هوش مصنوعی، مدیر خلاقیت و بنیان‌گذار <span class="en">Shim Studio</span>. در حال حاضر مدیر توسعهٔ کسب‌وکار دیجیتال و بازاریابی شرکت بهین گستر هستم. مسیرم از ادبیات نمایشی، انیمیشن و طراحی شخصیت شروع شد و به کارگردانی خلاق، تولید محتوای تبلیغاتی و خلق شخصیت‌های مجازی رسید. تمرکزم پیوند داستان‌پردازی، هویت بصری و فناوری با اهداف واقعی کسب‌وکارهاست.</p>
+      <p class="lead" data-en='AI artist, creative director and founder of <span class="en">Shim Studio</span> and <span class="en">Shim Academy</span>. This is me; but behind every project there is a team: designers, animators, editors, voice artists and developers. Currently Digital Business Development &amp; Marketing Manager at Behin Gostar. My path began in dramatic literature, animation and character design, and led to creative direction, advertising content and virtual characters. My focus: connecting storytelling, visual identity and technology to real business goals.'>هنرمند هوش مصنوعی، مدیر خلاقیت و بنیان‌گذار <span class="en">Shim Studio</span> و <span class="en">Shim Academy</span>. این منم؛ ولی پشت هر پروژه یک تیم است: طراح، انیماتور، تدوینگر، گوینده و دولوپر. در حال حاضر مدیر توسعهٔ کسب‌وکار دیجیتال و بازاریابی شرکت بهین گستر هستم. مسیرم از ادبیات نمایشی، انیمیشن و طراحی شخصیت شروع شد و به کارگردانی خلاق، تولید محتوای تبلیغاتی و خلق شخصیت‌های مجازی رسید. تمرکزم پیوند داستان‌پردازی، هویت بصری و فناوری با اهداف واقعی کسب‌وکارهاست.</p>
       <div class="solo">
         <figure class="ph solo-ph reveal clip" style="margin:0"><img src="assets/s1.jpg" alt="شمیم شمسی در نمایشگاه مدیا اکسپو، جلوی نقشهٔ ایران" data-par=".06"><figcaption>MEDIA EXPO · AI · IRAN</figcaption></figure>
         <svg class="deco" data-depth=".18" style="width:min(420px,60vw);left:-6%;top:-8%" viewBox="0 0 200 200" aria-hidden="true"><use href="#sphere"/></svg>
@@ -422,6 +435,42 @@ footer small{display:block;margin-top:16px;color:var(--dim);font-family:var(--f-
         <div class="fact reveal" data-en='<b>AI web design</b><span>Living, story-driven websites, like this one</span>'><b>طراحی سایت با AI</b><span>سایت‌های داستان‌گو و زنده، مثل همین سایت</span></div>
       </div>
       </div>
+    </div>
+  </section>
+
+  <section id="team">
+    <div class="wrap">
+      <span class="eyebrow">ONE FACE · ONE TEAM</span>
+      <h2 data-en='Me in front, a team behind.'>جلوی دوربین منم، پشتش یک تیم.</h2>
+      <p class="lead" data-en='Shim is not a one-person account. Two teams work under one name: a production studio and an academy.'>«شیم» یک اکانت تک‌نفره نیست. زیر یک اسم دو تیم کار می‌کنند: یک استودیوی تولید و یک آکادمی آموزش.</p>
+      <svg class="deco slow" data-depth=".2" style="width:min(300px,44vw);left:-8%;bottom:-10%;opacity:.6" viewBox="0 0 200 200" aria-hidden="true"><use href="#ring"/></svg>
+      <div class="team">
+        <article class="tm tilt reveal">
+          <span class="tm-k">SHIM STUDIO</span>
+          <h3 data-en='Production'>تولید</h3>
+          <p data-en='Advertising teasers, brand videos, virtual characters, motion, dubbing, AI web design and full campaigns, from brief to final delivery.'>تیزر تبلیغاتی، ویدیوی برند، کاراکتر مجازی، موشن، دوبله، طراحی سایت با AI و کمپین کامل؛ از بریف تا تحویل نهایی.</p>
+          <ul class="tm-l">
+            <li data-en='Creative direction &amp; script'>کارگردانی خلاق و فیلم‌نامه</li>
+            <li data-en='Image, video &amp; motion'>تصویر، ویدیو و موشن</li>
+            <li data-en='Voice, sound &amp; post'>صدا، گویندگی و پس‌تولید</li>
+            <li data-en='Web &amp; social delivery'>سایت و تحویل برای شبکه‌های اجتماعی</li>
+          </ul>
+          <a class="tm-a" href="https://instagram.com/shim.project" target="_blank" rel="noopener">@shim.project ↗</a>
+        </article>
+        <article class="tm tilt reveal">
+          <span class="tm-k">SHIM ACADEMY</span>
+          <h3 data-en='Teaching'>آموزش</h3>
+          <p data-en='Project-based AI courses and workshops for individuals, teams and companies: image, video, virtual characters and AI for business.'>دوره‌ها و ورکشاپ‌های پروژه‌محور هوش مصنوعی برای افراد، تیم‌ها و شرکت‌ها: تصویر، ویدیو، کاراکتر مجازی و AI برای کسب‌وکار.</p>
+          <ul class="tm-l">
+            <li data-en='Public courses, from zero'>دوره‌های عمومی، از صفر</li>
+            <li data-en='Corporate &amp; team training'>آموزش سازمانی و تیمی</li>
+            <li data-en='Free content on Instagram &amp; Telegram'>محتوای رایگان در اینستاگرام و تلگرام</li>
+            <li data-en='Mentoring for creators'>منتورینگ برای کریتورها</li>
+          </ul>
+          <a class="tm-a" href="https://instagram.com/shim.academy" target="_blank" rel="noopener">@shim.academy ↗</a>
+        </article>
+      </div>
+      <div class="roles reveal" data-en='<span>Creative director</span><span>Designer</span><span>Animator</span><span>Editor</span><span>Voice artist</span><span>Developer</span>'><span>مدیر خلاقیت</span><span>طراح</span><span>انیماتور</span><span>تدوینگر</span><span>گوینده</span><span>دولوپر</span></div>
     </div>
   </section>
 
