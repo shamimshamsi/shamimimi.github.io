@@ -181,6 +181,41 @@ h2 .en{font-weight:800;color:var(--violet)}
 .roles span{font-size:13px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
 @media (max-width:760px){.team{grid-template-columns:minmax(0,1fr)}.tm{padding:22px}}
 html[lang=en] .tm-l li{padding-right:0;padding-left:18px}html[lang=en] .tm-l li::before{right:auto;left:0}
+
+/* brief additions */
+.hero-sub{margin:10px 0 0;max-width:440px;font-size:clamp(15px,1.6vw,18px);line-height:1.8;color:var(--muted)}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 18px}
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 22px;border-radius:999px;background:var(--pink);color:#1C0E4A;font:700 15px var(--f-fa);text-decoration:none;border:1px solid var(--pink);cursor:pointer;transition:transform .2s,background .2s,color .2s;overflow:visible}
+.btn.ghost{background:transparent;color:var(--text);border-color:rgba(255,255,255,.35)}
+.btn:hover{transform:translateY(-2px)}
+.btn::after{content:"";position:absolute;left:-6px;bottom:-10px;width:0;height:3px;border-radius:3px;background:var(--pink);transform:rotate(-3deg);transition:width .25s ease}
+.btn.ghost:hover::after,.btn.ghost:focus-visible::after{width:60%}
+.btn:not(.ghost):hover::after{background:var(--sky);width:40%}
+.ink{display:block;width:min(320px,70%);height:40px;margin:-6px 0 10px;overflow:visible}
+.ink.short{width:min(160px,45%)}
+.ink path{fill:none;stroke:var(--pink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.ink.on path{animation:inkdraw .9s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes inkdraw{to{stroke-dashoffset:0}}
+.svc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:34px;position:relative;z-index:1}
+.sv{border:1px solid var(--line);border-radius:24px;padding:24px 26px;background:rgba(255,255,255,.04);min-width:0;transition:background .25s,transform .25s}
+.sv:hover{background:rgba(255,255,255,.07);transform:translateY(-3px)}
+.sv-n{font-family:var(--f-mono);font-size:12px;letter-spacing:.3em;color:var(--pink)}
+.sv h3{margin:8px 0 8px;font-size:clamp(20px,2.2vw,26px);font-weight:900}
+.sv p{margin:0;color:var(--muted);line-height:1.85;font-size:15px}
+.svc-note{margin:18px 0 0;color:var(--muted);font-size:14px}.svc-note a{color:var(--sky)}
+@media (max-width:760px){.svc{grid-template-columns:minmax(0,1fr)}.sv{padding:20px}}
+.brief{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:30px;padding:26px;border:1px solid var(--line);border-radius:26px;background:rgba(255,255,255,.04)}
+.bf-head{grid-column:1 / -1}.bf-head h3{margin:0 0 6px;font-size:24px;font-weight:900}.bf-head p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.8}
+.brief label{display:grid;gap:6px;min-width:0}.brief label.full{grid-column:1 / -1}
+.brief label span{font-size:14px;color:var(--muted)}
+.brief input,.brief select,.brief textarea{width:100%;min-height:46px;padding:10px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.22);background:rgba(10,6,30,.45);color:var(--text);font:400 16px var(--f-fa);transition:border-color .2s}
+.brief textarea{resize:vertical;min-height:110px}
+.brief input:focus-visible,.brief select:focus-visible,.brief textarea:focus-visible{outline:2px solid var(--pink);outline-offset:2px;border-color:var(--pink)}
+.brief .bad{border-color:#FF8A8A}
+.bf-actions{grid-column:1 / -1;display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.bf-status{font-size:14px;color:var(--gold);min-height:20px}
+@media (max-width:760px){.brief{grid-template-columns:minmax(0,1fr);padding:20px}}
+html[lang=en] .brief label span,html[lang=en] .bf-head{text-align:left}
 .morph{color:var(--pink);display:inline-block;transition:filter .35s, opacity .35s, transform .35s}
 .morph.out{filter:blur(8px);opacity:0;transform:translateY(6px)}
 .mline{font-size:clamp(20px, 2.4vw, 26px);font-weight:900;margin:0 0 18px}
@@ -357,6 +392,7 @@ footer small{display:block;margin-top:16px;color:var(--dim);font-family:var(--f-
 @media (prefers-reduced-motion: reduce){
   *{animation:none!important;transition:none!important}
   .pre,.pre.clip,.reveal{opacity:1;transform:none;clip-path:none}
+  .ink path{stroke-dashoffset:0}
   #prog{display:none}
 }
 </style>
@@ -423,6 +459,8 @@ footer small{display:block;margin-top:16px;color:var(--dim);font-family:var(--f-
         <div data-en='I build visual worlds and characters'>جهان‌ها و شخصیت‌های تصویری می‌سازم</div>
         <div data-en='<b>Story first.</b> Tools second.'><b>اول داستان.</b> بعد ابزار.</div>
       </div>
+      <p class="hero-sub" data-en='Character design, illustration and AI-made advertising video. One face in front, a team behind.'>طراحی کاراکتر، تصویرسازی و تولید ویدیوهای تبلیغاتی با هوش مصنوعی. جلوی دوربین من، پشتش یک تیم.</p>
+      <div class="cta"><a class="btn" href="#merisa" data-en='See the work'>دیدن کارها</a><a class="btn ghost" href="#brief" data-en='Send a brief'>ارسال بریف</a></div>
       <div class="cue">SCROLL ↓</div>
     </div>
   </div>
@@ -433,7 +471,8 @@ footer small{display:block;margin-top:16px;color:var(--dim);font-family:var(--f-
     <div class="wrap">
       <span class="eyebrow">BEHIND THE AVATAR</span>
       <h2 data-en='Behind the avatar, <span class="en">me.</span>'>پشت آواتار، <span class="en">me.</span></h2>
-      <p class="lead" data-en='AI artist, creative director and founder of <span class="en">Shim Studio</span> and <span class="en">Shim Academy</span>. This is me; but behind every project there is a team: designers, animators, editors, voice artists and developers. Currently Digital Business Development &amp; Marketing Manager at Behin Gostar. My path began in dramatic literature, animation and character design, and led to creative direction, advertising content and virtual characters. My focus: connecting storytelling, visual identity and technology to real business goals.'>هنرمند هوش مصنوعی، مدیر خلاقیت و بنیان‌گذار <span class="en">Shim Studio</span> و <span class="en">Shim Academy</span>. این منم؛ ولی پشت هر پروژه یک تیم است: طراح، انیماتور، تدوینگر، گوینده و دولوپر. در حال حاضر مدیر توسعهٔ کسب‌وکار دیجیتال و بازاریابی شرکت بهین گستر هستم. مسیرم از ادبیات نمایشی، انیمیشن و طراحی شخصیت شروع شد و به کارگردانی خلاق، تولید محتوای تبلیغاتی و خلق شخصیت‌های مجازی رسید. تمرکزم پیوند داستان‌پردازی، هویت بصری و فناوری با اهداف واقعی کسب‌وکارهاست.</p>
+      <svg class="ink" viewBox="0 0 320 40" aria-hidden="true"><path pathLength="1" d="M4 28 C 60 6, 120 40, 180 18 S 290 10, 316 26"/></svg>
+      <p class="lead" data-en='I like to leave a piece of my eye in whatever I make. AI artist, creative director and founder of <span class="en">Shim Studio</span> and <span class="en">Shim Academy</span>; my work is character design, illustration and AI-made advertising video. This is me; but behind every project there is a team: designers, animators, editors, voice artists and developers. Currently Digital Business Development &amp; Marketing Manager at Behin Gostar. My path began in dramatic literature, animation and character design, and led to creative direction, advertising content and virtual characters. My focus: connecting storytelling, visual identity and technology to real business goals.'>دوست دارم در چیزی که می‌سازم، تکه‌ای از نگاهم باقی بماند. هنرمند هوش مصنوعی، مدیر خلاقیت و بنیان‌گذار <span class="en">Shim Studio</span> و <span class="en">Shim Academy</span>؛ کارم طراحی کاراکتر، تصویرسازی و تولید ویدیوهای تبلیغاتی با هوش مصنوعی است. این منم؛ ولی پشت هر پروژه یک تیم است: طراح، انیماتور، تدوینگر، گوینده و دولوپر. در حال حاضر مدیر توسعهٔ کسب‌وکار دیجیتال و بازاریابی شرکت بهین گستر هستم. مسیرم از ادبیات نمایشی، انیمیشن و طراحی شخصیت شروع شد و به کارگردانی خلاق، تولید محتوای تبلیغاتی و خلق شخصیت‌های مجازی رسید. تمرکزم پیوند داستان‌پردازی، هویت بصری و فناوری با اهداف واقعی کسب‌وکارهاست.</p>
       <div class="solo">
         <figure class="ph solo-ph reveal clip" style="margin:0"><img src="assets/s1.jpg" alt="شمیم شمسی در نمایشگاه مدیا اکسپو، جلوی نقشهٔ ایران" data-par=".06"><figcaption>MEDIA EXPO 1405 · TEHRAN</figcaption></figure>
         <svg class="deco" data-depth=".18" style="width:min(420px,60vw);left:-6%;top:-8%" viewBox="0 0 200 200" aria-hidden="true"><use href="#sphere"/></svg>
@@ -493,6 +532,7 @@ footer small{display:block;margin-top:16px;color:var(--dim);font-family:var(--f-
     <div class="wrap">
       <span class="eyebrow">CASE STUDY · @MERIII3A</span>
       <h2 data-en='Merisa'>مریسا</h2>
+      <svg class="ink short" viewBox="0 0 160 40" aria-hidden="true"><path pathLength="1" d="M4 20 C 40 4, 80 36, 120 16 S 150 14, 156 22 l -10 -6 m 10 6 l -9 7"/></svg>
       <p class="lead" data-en='An influential virtual influencer I designed, built and manage from scratch. Like a real influencer she books ads, works with brands and has an audience that follows her.'>اینفلوئنسر مجازی تأثیرگذاری که از صفر طراحی، ساخته و مدیریتش کردم. مثل یک اینفلوئنسر واقعی تبلیغات می‌گیرد، با برندها همکاری می‌کند و مخاطب‌هایش او را دنبال می‌کنند.</p>
       <div class="mer">
         <svg class="deco slow" data-depth=".22" style="width:min(220px,36vw);right:-14%;top:-34%" viewBox="0 0 200 200" aria-hidden="true"><use href="#pink"/></svg>
@@ -504,7 +544,7 @@ footer small{display:block;margin-top:16px;color:var(--dim);font-family:var(--f-
         <div class="reveal">
           <p class="mline" data-en='From one idea I turned her into <span class="morph" id="morph">a character</span>'>از یک ایده رساندمش به <span class="morph" id="morph">یک شخصیت</span></p>
           <div class="kpis">
-            <div class="kpi big"><b data-to="60" data-suf="M+">60M+</b><span data-en='views on the page dashboard'>بازدید در داشبورد پیج</span></div>
+            <div class="kpi big"><b data-to="60" data-suf="M+">60M+</b><span data-en='views on the page dashboard (as of autumn 2025)'>بازدید در داشبورد پیج (تا پاییز ۱۴۰۴)</span></div>
             <div class="kpi"><b data-to="240" data-suf="K">240K</b><span data-en='followers in 6 months'>دنبال‌کننده در ۶ ماه</span></div>
             <div class="kpi"><b>ADS</b><span data-en='real on-site and voice ads, brand collaborations'>تبلیغات واقعی حضوری و گویشی، همکاری با برندها</span></div>
           </div>
@@ -562,11 +602,42 @@ footer small{display:block;margin-top:16px;color:var(--dim);font-family:var(--f-
     <div class="wrap">
       <span class="eyebrow">SELECTED BRANDS</span>
       <h2 data-en='Brands we built together'>برندهایی که با هم ساختیم</h2>
-      <p class="lead" data-en='Campaign visuals, CGI and AI ads delivered by the Shim Studio team for brands and agencies, in Iran, Dubai and beyond.'>ویژوال کمپین، CGI و تبلیغات AI که تیم شیم استودیو برای برندها و آژانس‌ها ساخته؛ ایران، دبی و فراتر.</p>
+      <p class="lead" data-en='Campaign visuals, CGI and AI ads made by the Shim Studio team for these brands; some as direct commissions, some in collaboration with agencies. Iran, Dubai and beyond.'>ویژوال کمپین، CGI و تبلیغات AI که تیم شیم استودیو برای این برندها ساخته؛ بعضی به‌صورت پروژهٔ سفارشی مستقیم و بعضی در همکاری با آژانس‌ها. ایران، دبی و فراتر.</p>
     </div>
     <div class="marquee" aria-label="برندها">
       <div class="track"><span class="lg"><img src="assets/logos/mci.webp" alt="Hamrah Aval (MCI)" loading="lazy"></span><span class="lg"><img src="assets/logos/mihan.webp" alt="Mihan" loading="lazy"></span><span class="lg"><img src="assets/logos/kalleh.webp" alt="Kalleh" loading="lazy"></span><span class="lg"><img src="assets/logos/estee.webp" alt="Estée Lauder" loading="lazy"></span><span class="lg"><img src="assets/logos/sheglam.webp" alt="Sheglam" loading="lazy"></span><span class="lg"><img src="assets/logos/zara.webp" alt="Zara" loading="lazy"></span><span class="lg"><img src="assets/logos/domino.webp" alt="Domino" loading="lazy"></span><span class="lg"><img src="assets/logos/panda.webp" alt="Panda" loading="lazy"></span><span class="lg"><img src="assets/logos/deluse.webp" alt="Deluse" loading="lazy"></span><span class="lg"><img src="assets/logos/tanis.webp" alt="Tanis" loading="lazy"></span><span class="lg"><img src="assets/logos/king.webp" alt="KING" loading="lazy"></span><span class="lg"><img src="assets/logos/tabiat.webp" alt="Tabiat" loading="lazy"></span><span class="lg"><img src="assets/logos/kixmax.webp" alt="Kix Max" loading="lazy"></span><span class="lg"><img src="assets/logos/fruitland.webp" alt="Fruitland" loading="lazy"></span><span class="lg"><img src="assets/logos/dailymarket.webp" alt="Daily Market" loading="lazy"></span><span class="lg"><img src="assets/logos/zar.webp" alt="Zar Macaron" loading="lazy"></span><span class="lg"><img src="assets/logos/gilani.webp" alt="Gilani" loading="lazy"></span><span class="lg"><img src="assets/logos/nanavaran.webp" alt="Nan Avaran" loading="lazy"></span><span class="lg"><img src="assets/logos/alinoos.webp" alt="Alinoos" loading="lazy"></span><span class="lg"><img src="assets/logos/filimo.webp" alt="Filimo" loading="lazy"></span><span class="lg"><img src="assets/logos/farmand.webp" alt="Farmand" loading="lazy"></span><span class="lg"><img src="assets/logos/roja.webp" alt="Roja" loading="lazy"></span><span class="lg"><img src="assets/logos/bokeh.webp" alt="Bokeh" loading="lazy"></span><span class="lg"><img src="assets/logos/goldenconcept.webp" alt="Golden Concept" loading="lazy"></span><span class="lg"><img src="assets/logos/jasaf.webp" alt="Jasaf" loading="lazy"></span><span class="lg"><img src="assets/logos/redqueen.webp" alt="Red Queen" loading="lazy"></span><span class="lg"><img src="assets/logos/d.webp" alt="D" loading="lazy"></span><span class="lg"><img src="assets/logos/m.webp" alt="M" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/mci.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/mihan.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/kalleh.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/estee.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/sheglam.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/zara.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/domino.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/panda.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/deluse.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/tanis.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/king.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/tabiat.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/kixmax.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/fruitland.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/dailymarket.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/zar.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/gilani.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/nanavaran.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/alinoos.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/filimo.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/farmand.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/roja.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/bokeh.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/goldenconcept.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/jasaf.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/redqueen.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/d.webp" alt="" loading="lazy"></span><span class="lg" aria-hidden="true"><img src="assets/logos/m.webp" alt="" loading="lazy"></span></div>
       <div class="track rev" aria-hidden="true"><span class="l">GITEX Dubai</span><span data-en='Flamingo Tehran'>فلامینگو تهران</span><span class="l">Flamix</span><span data-en='Mica Mall Kish'>میکامال کیش</span><span class="l">BoBo</span><span data-en='Hamidi Jewelry'>جواهری حمیدی</span><span class="l">Aura</span><span data-en='Petro Artan Part'>پترو آرتان پارت</span><span class="l">Deep Studio Dubai</span><span data-en='Halloween Kish'>هالووین کیش</span><span class="l">GITEX Dubai</span><span data-en='Flamingo Tehran'>فلامینگو تهران</span><span class="l">Flamix</span><span data-en='Mica Mall Kish'>میکامال کیش</span><span class="l">BoBo</span><span data-en='Hamidi Jewelry'>جواهری حمیدی</span><span class="l">Aura</span><span data-en='Petro Artan Part'>پترو آرتان پارت</span><span class="l">Deep Studio Dubai</span><span data-en='Halloween Kish'>هالووین کیش</span></div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <span class="eyebrow">SERVICES</span>
+      <h2 data-en='What you get'>چی تحویل می‌گیری</h2>
+      <p class="lead" data-en='Real services, in plain words. Every project starts with a brief and ends with files you can publish.'>خدمات واقعی، با زبان ساده. هر پروژه با یک بریف شروع می‌شود و با فایل‌هایی تمام می‌شود که آمادهٔ انتشارند.</p>
+      <div class="svc">
+        <article class="sv reveal">
+          <span class="sv-n">01</span>
+          <h3 data-en='AI advertising video &amp; teaser'>تیزر و ویدیوی تبلیغاتی با AI</h3>
+          <p data-en='Script, storyboard, image and video generation, motion, voice and edit. You get a finished 9:16 / 16:9 video with sound, plus cutdowns for Instagram.'>فیلم‌نامه، استوری‌بورد، تولید تصویر و ویدیو، موشن، صدا و تدوین. خروجی: ویدیوی کامل ۹:۱۶ یا ۱۶:۹ با صدا، به‌علاوهٔ نسخه‌های کوتاه برای اینستاگرام.</p>
+        </article>
+        <article class="sv reveal">
+          <span class="sv-n">02</span>
+          <h3 data-en='Character &amp; virtual influencer'>کاراکتر و اینفلوئنسر مجازی</h3>
+          <p data-en='A character with a fixed face, voice and personality that can keep posting: design sheet, voice, first content pack and a guide for continuing.'>کاراکتری با چهره، صدا و شخصیت ثابت که می‌تواند ادامه بدهد: شیت طراحی، صدا، پکیج محتوای اول و راهنمای ادامه دادن. مثل مریسا، مستر خوبی و ولین.</p>
+        </article>
+        <article class="sv reveal">
+          <span class="sv-n">03</span>
+          <h3 data-en='Illustration &amp; campaign visuals'>تصویرسازی و ویژوال کمپین</h3>
+          <p data-en='Key visuals, product scenes, posters and social sets with a consistent look across the campaign. Delivered as print-ready and social-ready files.'>کی‌ویژوال، صحنهٔ محصول، پوستر و ست شبکه‌های اجتماعی با یک نگاه یکدست در کل کمپین. تحویل به‌صورت فایل آمادهٔ چاپ و انتشار.</p>
+        </article>
+        <article class="sv reveal">
+          <span class="sv-n">04</span>
+          <h3 data-en='AI web design'>طراحی سایت با AI</h3>
+          <p data-en='Story-driven, fast, mobile-first sites built with AI tools, like this one. You get the files and a published site you can edit later.'>سایت‌های داستان‌گو، سریع و موبایل‌اول که با ابزارهای AI ساخته می‌شوند؛ مثل همین سایت. فایل‌ها و سایت منتشرشده را می‌گیری و بعداً هم قابل ویرایش است.</p>
+        </article>
+      </div>
+      <p class="svc-note" data-en='Teaching has its own place: see <a href="#teach">Shim Academy</a>.'>آموزش جای خودش را دارد: <a href="#teach">شیم آکادمی</a>.</p>
     </div>
   </section>
 
@@ -678,6 +749,20 @@ footer small{display:block;margin-top:16px;color:var(--dim);font-family:var(--f-
       <p class="lead" data-en='Open to project, team and remote collaboration; I have worked with brands and teams in Iran and Dubai.'>برای همکاری پروژه‌ای، تیمی و از راه دور آماده‌ام؛ با برندها و تیم‌هایی در ایران و دبی کار کرده‌ام.</p>
       <svg class="deco" data-depth=".18" style="width:min(300px,44vw);right:-10%;bottom:-8%" viewBox="0 0 200 200" aria-hidden="true"><use href="#pink"/></svg>
 
+      <form class="brief" id="brief" novalidate>
+        <div class="bf-head"><h3 data-en='Send a brief'>بریف بفرست</h3><p data-en='Four short fields. The text is prepared for you and opens in WhatsApp; nothing is stored on this site.'>چهار فیلد کوتاه. متن برایت آماده می‌شود و در واتساپ باز می‌شود؛ چیزی روی این سایت ذخیره نمی‌شود.</p></div>
+        <label><span data-en='Your name'>اسم شما</span><input name="name" type="text" autocomplete="name" required></label>
+        <label><span data-en='Brand or subject'>برند یا موضوع</span><input name="brand" type="text"></label>
+        <label><span data-en='What do you need?'>چی لازم داری؟</span>
+          <select name="type"><option value="تیزر / ویدیوی تبلیغاتی" data-en='Ad video / teaser'>تیزر / ویدیوی تبلیغاتی</option><option value="کاراکتر / اینفلوئنسر مجازی" data-en='Character / virtual influencer'>کاراکتر / اینفلوئنسر مجازی</option><option value="تصویرسازی / ویژوال کمپین" data-en='Illustration / campaign visuals'>تصویرسازی / ویژوال کمپین</option><option value="طراحی سایت با AI" data-en='AI web design'>طراحی سایت با AI</option><option value="آموزش / ورکشاپ" data-en='Teaching / workshop'>آموزش / ورکشاپ</option><option value="چیز دیگر" data-en='Something else'>چیز دیگر</option></select></label>
+        <label class="full"><span data-en='A few lines about the project'>چند خط دربارهٔ پروژه</span><textarea name="desc" rows="4" required></textarea></label>
+        <div class="bf-actions">
+          <button class="btn" type="submit" data-en='Open in WhatsApp'>باز کردن در واتساپ</button>
+          <button class="btn ghost" type="button" id="bf-copy" data-en='Copy the text'>کپی متن</button>
+          <span class="bf-status" id="bf-status" role="status" aria-live="polite"></span>
+        </div>
+      </form>
+      <svg class="ink" viewBox="0 0 320 40" aria-hidden="true" style="margin:26px 0 6px"><path pathLength="1" d="M4 22 C 70 38, 110 2, 170 20 S 260 36, 316 14"/></svg>
       <div class="links">
         <a class="lk" href="https://instagram.com/shim.academy" target="_blank" rel="noopener" style="--c1:#FF7A59;--c2:#D62976;--c3:#962FBF">
           <span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg></span>
@@ -772,6 +857,19 @@ footer small{display:block;margin-top:16px;color:var(--dim);font-family:var(--f-
     document.querySelectorAll('video').forEach(function(v){vo.observe(v)});
   }
   var progEl=document.getElementById('prog');function upProg(){var m=document.documentElement.scrollHeight-innerHeight;progEl.style.transform='scaleX('+(m>0?Math.min(1,scrollY/m):0)+')'}addEventListener('scroll',upProg,{passive:true});upProg();
+
+  // signature ink strokes
+  if('IntersectionObserver' in window && !reduce){var ko=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');ko.unobserve(e.target)}})},{threshold:.6});document.querySelectorAll('.ink').forEach(function(k){ko.observe(k)})}else{document.querySelectorAll('.ink').forEach(function(k){k.classList.add('on')})}
+  // brief form -> WhatsApp / copy
+  var bf=document.getElementById('brief');
+  if(bf){var st=document.getElementById('bf-status');var EN=function(){return document.documentElement.lang==='en'};
+    function text(){var f=new FormData(bf);var t=(f.get('type')||'');var sel=bf.querySelector('select');if(EN()&&sel){t=sel.options[sel.selectedIndex].getAttribute('data-en')||t}
+      return (EN()?'Hi Shamim, a brief for Shim Studio:\n':'سلام شمیم، یک بریف برای شیم استودیو:\n')+(EN()?'Name: ':'اسم: ')+f.get('name')+'\n'+(EN()?'Brand/subject: ':'برند/موضوع: ')+(f.get('brand')||'-')+'\n'+(EN()?'Need: ':'نیاز: ')+t+'\n'+(EN()?'Project: ':'پروژه: ')+f.get('desc')}
+    function ok(){var good=true;['name','desc'].forEach(function(n){var el=bf.elements[n];var v=(el.value||'').trim();el.classList.toggle('bad',!v);if(!v)good=false});
+      if(!good){st.textContent=EN()?'Please fill in your name and a few lines about the project.':'اسم و چند خط دربارهٔ پروژه را پر کن.';(bf.querySelector('.bad')||{}).focus&&bf.querySelector('.bad').focus()}return good}
+    bf.addEventListener('submit',function(e){e.preventDefault();if(!ok())return;st.textContent=EN()?'Opening WhatsApp…':'در حال باز کردن واتساپ…';window.open('https://wa.me/989125693700?text='+encodeURIComponent(text()),'_blank','noopener');setTimeout(function(){st.textContent=EN()?'If WhatsApp did not open, use “Copy the text”.':'اگر واتساپ باز نشد، «کپی متن» را بزن.'},1500)});
+    document.getElementById('bf-copy').addEventListener('click',function(){if(!ok())return;var t=text();(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).catch(function(){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();var r=document.execCommand('copy');document.body.removeChild(ta);if(!r)throw 0}).then(function(){st.textContent=EN()?'Copied. Paste it in WhatsApp, Telegram or email.':'کپی شد. در واتساپ، تلگرام یا ایمیل بچسبان.'},function(){st.textContent=EN()?'Copy failed; select the text manually.':'کپی نشد؛ متن را دستی انتخاب کن.'})});
+    bf.addEventListener('input',function(e){e.target.classList.remove('bad')})}
   document.addEventListener('visibilitychange',function(){if(document.hidden)muteAll()});
 
   /* copy */
